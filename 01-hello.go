@@ -1,12 +1,12 @@
 /**
-  * hello.go
-  * 
   * Welcome to Go Code! 
   *
   * A set of go programs to help you learn golang by reading code
   * Kinda like the immersion foreign language classes but better
   * because parlez vous golang es muy bueno
-  * 
+  *
+  * hello.go
+  * A minimal first program 
   */
 
 // all programs must be part of a package and main is the default package
