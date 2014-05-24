@@ -36,7 +36,7 @@ func main() {
 	// write back to new file, need to cast back to []byte
 	// see documentation for which methods take what type
 	outfile := "output.txt"
-	err := ioutil.WriteFile(filename, []byte(content), 0644)
+	err = ioutil.WriteFile(outfile, []byte(content), 0644)
 	if err != nil {
 		log.Fatalln("Error writing file: ", err)
 	}
