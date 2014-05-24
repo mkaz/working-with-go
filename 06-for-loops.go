@@ -34,7 +34,7 @@ func main() {
 	for _, val := range alphas {
 		fmt.Println(val)
 	}
-	
+
 	// how to use for like a while
 	x := 0
 	for x < 10 {
