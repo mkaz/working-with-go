@@ -1,6 +1,8 @@
 
 # Working with Go
 
+Marcus Kazmierczak [mkaz.com](http://mkaz.com/), [@mkaz](https://twitter.com/mkaz)
+
 Working with Go is a set of example programs in Go (golang) to get an experienced programmer familiar with Go. Note, Go is often referred to as golang to help searches.
 
 This initial started out as a full fledged book, but I found the real value was in all the examples and the text and descriptions were simple enough to include in the code as comments. Also descriptions worked better in full context.
@@ -45,4 +47,5 @@ If you are starting out and want to learn how to program and choose Go as your f
 
 ## License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Working with Go</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Working with Go is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. 
+
