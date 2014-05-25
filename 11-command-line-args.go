@@ -1,9 +1,10 @@
 /**
-  * command-line-args.go
-  * A program showing how to use command-line arguments and flags in Go
-  */
+ * command-line-args.go
+ * A program showing how to use command-line arguments and flags in Go
+ */
 
 package main
+
 import (
 	"flag"
 	"fmt"
@@ -18,15 +19,15 @@ func main() {
 
 	// command-line args are stored as slice in os.Args
 	// first argument in list is program itself
-	num_args := len( os.Args )
-	
+	num_args := len(os.Args)
+
 	// check if received any command line arguments
 	if num_args < 2 {
 		fmt.Println(">>> No args passed in")
 	}
-	
+
 	// flag package provides parsing of command-line parameters
-	// this example we create global variables and then pass them in 
+	// this example we create global variables and then pass them in
 	// as pointers which BoolVar, StringVar and IntVar set as values
 	flag.StringVar(&str, "str", "default value", "text description")
 	flag.IntVar(&num, "num", 5, "text description")
@@ -38,7 +39,7 @@ func main() {
 		fmt.Println("Display help screen")
 		os.Exit(1)
 	}
-	
+
 	fmt.Println("String: ", str)
 	fmt.Println("Number: ", num)
 

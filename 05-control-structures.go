@@ -1,10 +1,11 @@
 /**
-  * control-structures.go
-  * If, Else, Switch and Conditionals
-  */
+ * control-structures.go
+ * If, Else, Switch and Conditionals
+ */
 
 // standard stuff
 package main
+
 import "fmt"
 
 func main() {

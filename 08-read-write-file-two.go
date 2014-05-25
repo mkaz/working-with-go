@@ -1,11 +1,11 @@
 /**
-  * read-write-files.go
-  *
-  * The io/ioutil examples previously worked on the whole file at once
-  * The majority of the time, that is all you need. However, if for some
-  * reason you want to read or write line-by-line
-  *
-  */
+ * read-write-files.go
+ *
+ * The io/ioutil examples previously worked on the whole file at once
+ * The majority of the time, that is all you need. However, if for some
+ * reason you want to read or write line-by-line
+ *
+ */
 
 package main
 
@@ -26,11 +26,11 @@ func main() {
 	scanner := bufio.NewScanner(f)
 
 	for scanner.Scan() {
-		 // returns text prior to token
+		// returns text prior to token
 		line := scanner.Text()
 		fmt.Println(line)
 	}
-	
+
 	// check if any errors occurred
 	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
@@ -47,7 +47,7 @@ func main() {
 	defer f.Close()
 
 	for _, str := range []string{"apple", "banana", "carrot"} {
-		bytes, err := f.WriteString(str)	
+		bytes, err := f.WriteString(str)
 		if err != nil {
 			log.Fatalln("Error writing string: ", err)
 		}

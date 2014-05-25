@@ -1,23 +1,24 @@
 /**
-  * read-dir-recursive.go
-  *
-  * Read directory and recursively print on all files and directories
-  * See: http://golang.org/pkg/path/filepath/
-  *
-  */
+ * read-dir-recursive.go
+ *
+ * Read directory and recursively print on all files and directories
+ * See: http://golang.org/pkg/path/filepath/
+ *
+ */
 package main
+
 import (
-    "fmt"
+	"fmt"
 	"os"
-    "path/filepath"
+	"path/filepath"
 )
 
 // main function
 func main() {
-    path := "./"
+	path := "./"
 	// Walk takes ( path, function ) and goes through path
 	// and calls function for each entry
-    filepath.Walk(path, Walker)
+	filepath.Walk(path, Walker)
 }
 
 // walker function that gets called per file, receives filename
@@ -29,7 +30,7 @@ func Walker(fn string, fi os.FileInfo, err error) error {
 	}
 
 	if fi.IsDir() {
-		fmt.Println("Directory: ", fn )
+		fmt.Println("Directory: ", fn)
 	} else {
 		fmt.Println("File: ", fn)
 	}

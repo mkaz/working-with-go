@@ -1,10 +1,11 @@
 /**
-  * for-loops.go
-  * Go uses "for" for all loops, there is no "while" or "do-while" loops
-  *
-  */
+ * for-loops.go
+ * Go uses "for" for all loops, there is no "while" or "do-while" loops
+ *
+ */
 
 package main
+
 import "fmt"
 
 func main() {

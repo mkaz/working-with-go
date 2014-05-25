@@ -1,18 +1,18 @@
 /**
-  * working-with-strings.go
-  *
-  * Working with strings, manipulating, creating etc
-  * Most strings functions are stored in standard library "strings"
-  * See: http://golang.org/pkg/strings/
-  */
+ * working-with-strings.go
+ *
+ * Working with strings, manipulating, creating etc
+ * Most strings functions are stored in standard library "strings"
+ * See: http://golang.org/pkg/strings/
+ */
 
 // standard main package
 package main
 
 // Note: if you include a package but don't use it, the Go compiler will barf
 import (
-	"fmt"		// for standard output
-	"strings"	// for manipulating strings
+	"fmt"     // for standard output
+	"strings" // for manipulating strings
 )
 
 // this function gets run on program execution
@@ -20,10 +20,10 @@ func main() {
 
 	// create a string variable
 	str := "HI, I'M UPPER CASE"
-	
+
 	// convert to lower case
 	lower := strings.ToLower(str)
-	
+
 	// output to show its really lower case
 	fmt.Println(lower)
 
@@ -46,4 +46,3 @@ func main() {
 
 // run program in your terminal using
 // $ go run working-with-strings.go
-

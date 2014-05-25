@@ -1,10 +1,10 @@
 /**
-  * read-write-files.go
-  *
-  * Examples reading and writing to a file using io/ioutil
-  * See: http://golang.org/pkg/io/ioutil/
-  *
-  */
+ * read-write-files.go
+ *
+ * Examples reading and writing to a file using io/ioutil
+ * See: http://golang.org/pkg/io/ioutil/
+ *
+ */
 
 package main
 
@@ -31,7 +31,6 @@ func main() {
 	// content returned as []bytes not string
 	// so must cast to string first and then can display
 	fmt.Println(string(content))
-
 
 	// write back to new file, need to cast back to []byte
 	// see documentation for which methods take what type

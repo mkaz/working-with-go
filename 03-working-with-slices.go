@@ -1,20 +1,21 @@
 /**
-  * working-with-slices.go
-  *
-  * Go has an array type, but most interactions are with slices which are built
-  * off arrays. I don't worry too much about the name and just use them
-  * The specification for slices are "[]T" where T is the type. 
-  * So "[]string" is a set of strings, "[]int" is a set of integers, and so on.
-  */
+ * working-with-slices.go
+ *
+ * Go has an array type, but most interactions are with slices which are built
+ * off arrays. I don't worry too much about the name and just use them
+ * The specification for slices are "[]T" where T is the type.
+ * So "[]string" is a set of strings, "[]int" is a set of integers, and so on.
+ */
 
 package main
+
 import "fmt"
 
 func main() {
-	
+
 	// initializes an empty array
 	var empty []int
-	
+
 	// initialize array with values
 	alphas := []string{"abc", "def", "ghi", "jkl"}
 
@@ -23,7 +24,7 @@ func main() {
 	empty = append(empty, 123)
 	empty = append(empty, 456)
 	fmt.Printf("%v \n", empty)
-	
+
 	// append multiple values
 	alphas = append(alphas, "pqr", "stu")
 	fmt.Printf("%v \n", alphas)

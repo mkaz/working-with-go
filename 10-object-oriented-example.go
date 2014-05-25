@@ -1,9 +1,11 @@
 /**
-  * object-oriented-example.go
-  * Create basic object and method
-  */
+ * object-oriented-example.go
+ *
+ * A basic example create on object and defining a method
+ */
 
 package main
+
 import "fmt"
 
 // define Dog object type
@@ -12,14 +14,15 @@ type Dog struct {
 	Color string
 }
 
-// define method for Dog object
+// Method for object specify the object the refer to and then
+// the method name and rest of normal function definition
 func (d Dog) Call() {
 	fmt.Printf("Come here %s dog, %s \n", d.Color, d.Name)
 }
 
 func main() {
 
-	// create object and set properties
+	// create instance of object and set properties
 	Spot := Dog{Name: "Spot", Color: "brown"}
 
 	// call object method
