@@ -26,7 +26,6 @@ func main() {
 	// variable to store number of guesses
 	var count int
 
-
 	// pick number to guess, add 1 since Intn gives [0,99]
 	num := rand.Intn(100) + 1
 
