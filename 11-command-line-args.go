@@ -51,7 +51,7 @@ func main() {
 // >> String: default value
 // >> Number: 5
 
-// $ go run command-line-args.go --conf=Foo --limit=8 filename
+// $ go run command-line-args.go --str=Foo --num=8 filename
 // >> String: Foo
 // >> Number: 8
 
