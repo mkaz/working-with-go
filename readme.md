@@ -33,6 +33,13 @@ If you want to build a program in Go and then run:
     $ ./hello
 
 
+## Development Environment
+
+Go is a light-weight, which makes it flexible for just about any set of developer tools. A full blown IDE, such as Eclipse, is rarely used. Most developers opt for their favorite text editor and the terminal to run. This is how I run on Linux, but I also split my time on a Mac.
+
+On Mac, I use [TextMate 2](http://macromates.com/download) which has a nice Go bundle. The bundle offers a couple of shortcuts, the two I use frequently are  quick running of program <b>&#8984;R</b> and the shortcut to reformat code <b>^&#8679;H</b>. 
+
+
 ## Contribute
 
 Working with Go was started by Marcus Kazmierczak, but I welcome and encourage any additional examples, corrections or any contributions to create a good working set of code someone new can use to learn Go.
@@ -42,6 +49,8 @@ Working with Go was started by Marcus Kazmierczak, but I welcome and encourage a
 This set of examples assumes a certain level of programming experience and is intended for someone learning the Go language and not someone new to programming altogether.
 
 If you are starting out and want to learn how to program and choose Go as your first language, check out [Learn Programming in Go](http://www.golang-book.com/)
+
+The official site has a [Tour of Go](http://tour.golang.org/) which is an interactive walk through, another good introduction to the language.
 
 
 ## License
