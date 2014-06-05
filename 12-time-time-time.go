@@ -2,6 +2,7 @@
  * time-time-time.go
  *
  * How to format, parse and calculate date and times in Go
+ * See: http://golang.org/pkg/time/
  *
  */
 
