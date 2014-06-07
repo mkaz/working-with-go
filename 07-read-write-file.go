@@ -28,7 +28,7 @@ func main() {
 		log.Fatalln("Error reading file", filename)
 	}
 
-	// content returned as []bytes not string
+	// content returned as []byte not string
 	// so must cast to string first and then can display
 	fmt.Println(string(content))
 
