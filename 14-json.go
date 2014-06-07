@@ -3,6 +3,7 @@
  *
  * Example program on using JSON with Go
  * As you might notice a trend, there is a standard library for it.
+ * Seee: http://golang.org/pkg/encoding/json/
  *
  */
 
