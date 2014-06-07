@@ -2,7 +2,7 @@
  * sorting.go
  *
  * Example program on how to sort various arrays and maps
- *
+ * See: http://golang.org/pkg/sort/
  */
 
 package main
