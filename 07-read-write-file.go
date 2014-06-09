@@ -28,14 +28,14 @@ func main() {
 		log.Fatalln("Error reading file", filename)
 	}
 
-	// content returned as []bytes not string
+	// content returned as []byte not string
 	// so must cast to string first and then can display
 	fmt.Println(string(content))
 
-	// write back to new file, need to cast back to []byte
+	// write back to new file
 	// see documentation for which methods take what type
 	outfile := "output.txt"
-	err = ioutil.WriteFile(outfile, []byte(content), 0644)
+	err = ioutil.WriteFile(outfile, content, 0644)
 	if err != nil {
 		log.Fatalln("Error writing file: ", err)
 	}

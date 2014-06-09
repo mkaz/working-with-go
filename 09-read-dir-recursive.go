@@ -16,6 +16,7 @@ import (
 // main function
 func main() {
 	path := "./"
+	// Pass function as a parameter is OK in Go.
 	// Walk takes ( path, function ) and goes through path
 	// and calls function for each entry
 	filepath.Walk(path, Walker)
