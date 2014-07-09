@@ -39,22 +39,21 @@ func main() {
 	alpha2 := alphas[1:3]
 	fmt.Println(alpha2)
 
-    // check if element exists in array
-    // there is no function to determine this
-    // the only method is to iterate over the array
-    // see elemExists func defined below
-    if ( elemExists("def", alphas) ) {
-        fmt.Println("Exists!")
-    }
+	// check if element exists in array
+	// there is no function to determine this
+	// the only method is to iterate over the array
+	// see elemExists func defined below
+	if elemExists("def", alphas) {
+		fmt.Println("Exists!")
+	}
 
 }
 
-func elemExists( s string, a []string) bool {
-    for _, v := range a {
-        if a == s {
-            return true
-        }
-    }
-    return false
+func elemExists(s string, a []string) bool {
+	for _, v := range a {
+		if v == s {
+			return true
+		}
+	}
+	return false
 }
-
