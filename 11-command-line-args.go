@@ -45,15 +45,31 @@ func main() {
 
 	// last command-line argument
 	fmt.Println("Last Item: ", os.Args[num_args-1])
+
+	// the os.Args will include flags for example
+	// go run command-line-args.go --str=Foo filename
+	// os.Args[1] = "--str=Foo"
+
+	// If you have flags and want just the arguments
+	// then after calling flag.Parse() you an call
+	// flag.Args which store only the args
+	args := flag.Args()
+	if len(args) > 0 {
+		fmt.Println("Flag Arg: ", args[0])
+	}
+
 }
 
 // $ go run command-line-args.go
 // >> String: default value
 // >> Number: 5
+// >> Last Item: command-line-args.go
 
 // $ go run command-line-args.go --str=Foo --num=8 filename
 // >> String: Foo
 // >> Number: 8
+// >> Last Item: filename
+// >> Flag Arg: filename
 
 // Try passing in invalid values, invalid flags and other tests
 // The flag package provides a lot to help build command-line programs
