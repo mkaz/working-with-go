@@ -32,6 +32,13 @@ func main() {
 		fmt.Println("Yes, exists!")
 	}
 
+	// strings are arrays of characters
+	// printing out characters 3 to 9
+	fmt.Println("Characters 3-9: " + str[3:9])
+
+	// printing out first 5 characters
+	fmt.Println("First Five: " + str[:5])
+
 	// split a string on a specific character or word
 	sentence := "I'm a sentence made up of words"
 	words := strings.Split(sentence, " ")
