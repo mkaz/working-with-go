@@ -23,7 +23,7 @@ func main() {
 
 	// check if received any command line arguments
 	if num_args < 2 {
-		fmt.Println(">>> No args passed in")
+		fmt.Println(">> No args passed in")
 	}
 
 	// flag package provides parsing of command-line parameters
@@ -36,15 +36,15 @@ func main() {
 
 	// check if help was called explicitly
 	if help {
-		fmt.Println("Display help screen")
+		fmt.Println(">> Display help screen")
 		os.Exit(1)
 	}
 
-	fmt.Println("String: ", str)
-	fmt.Println("Number: ", num)
+	fmt.Println(">> String:", str)
+	fmt.Println(">> Number:", num)
 
 	// last command-line argument
-	fmt.Println("Last Item: ", os.Args[num_args-1])
+	fmt.Println(">> Last Item:", os.Args[num_args-1])
 
 	// the os.Args will include flags for example
 	// go run command-line-args.go --str=Foo filename
@@ -55,12 +55,13 @@ func main() {
 	// flag.Args which store only the args
 	args := flag.Args()
 	if len(args) > 0 {
-		fmt.Println("Flag Arg: ", args[0])
+		fmt.Println(">> Flag Arg:", args[0])
 	}
 
 }
 
 // $ go run command-line-args.go
+// >> No args passed in
 // >> String: default value
 // >> Number: 5
 // >> Last Item: command-line-args.go
