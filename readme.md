@@ -39,10 +39,30 @@ Go is a light-weight, which makes it flexible for just about any set of develope
 
 On Mac, I use [TextMate 2](http://macromates.com/download) which has a nice Go bundle. The bundle offers a couple of shortcuts, the two I use frequently are  quick running of program <b>&#8984;R</b> and the shortcut to reformat code <b>^&#8679;H</b>. 
 
+If using <b>vim</b>, I recommend using <a
+href="https://github.com/fatih/vim-go">vim-go</a> package. 
+
+Go has two tools that can automatically format your source code to the Go
+coding standard, `gofmt` which comes with standard install and `goimports`
+which will format and auto adjust import statemetns as needed.
+
+I recommend installing and configuring <a
+href="http://godoc.org/code.google.com/p/go.tools/cmd/goimports">goimports</a> to automatically run on save.
+
+Install goimports:
+
+    $ go get code.google.com/p/go.tools/cmd/goimports
+
+
+Setup vim to auto run `goimports` on save using vim-go:
+
+    let g:go_fmt_command = "goimports"
+
+
 
 ## Contribute
 
-Working with Go was started by Marcus Kazmierczak, but I welcome and encourage any additional examples, corrections or any contributions to create a good working set of code someone new can use to learn Go.
+Working with Go was started by Marcus Kazmierczak. Additions, corrections and any contributions are encouraged, please submit a pull request with your change or an issue for a bug or fix. Thanks to <a href="https://github.com/mkaz/working-with-go/graphs/contributors">all the contributors</a>!
 
 ## Resources
 
