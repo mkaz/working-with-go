@@ -20,7 +20,7 @@ func Echo(s string) {
 }
 
 // Function with single return value
-// the type of the return value is specifed after function declation
+// the type of the return value is specifed after function declaration
 func Say(s string) string {
 	phrase := "Hello " + s
 	return phrase
