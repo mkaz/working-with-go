@@ -44,7 +44,7 @@ href="https://github.com/fatih/vim-go">vim-go</a> package.
 
 Go has two tools that can automatically format your source code to the Go
 coding standard, `gofmt` which comes with standard install and `goimports`
-which will format and auto adjust import statemetns as needed.
+which will format and auto adjust import statements as needed.
 
 I recommend installing and configuring <a
 href="http://godoc.org/code.google.com/p/go.tools/cmd/goimports">goimports</a> to automatically run on save.
