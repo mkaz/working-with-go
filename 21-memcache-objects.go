@@ -36,13 +36,17 @@ func main() {
 
 	// check for cache hit
 	if err != memcache.ErrCacheMiss {
-		fmt.Println("Cache hit!")
-
-		dog, err := DecodeData(fetchItem.Value)
 		if err != nil {
-			fmt.Println("Error decoding data from memcache", err)
+			fmt.Println("Error fetching from memcache", err)
 		} else {
-			fmt.Println("Dog name is: ", dog.Name)
+			fmt.Println("Cache hit!")
+
+			dog, err := DecodeData(fetchItem.Value)
+			if err != nil {
+				fmt.Println("Error decoding data from memcache", err)
+			} else {
+				fmt.Println("Dog name is: ", dog.Name)
+			}
 		}
 	}
 
