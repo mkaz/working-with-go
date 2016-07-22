@@ -17,7 +17,7 @@ type Dog struct {
 // Method for object specify the object the refer to and then
 // the method name and rest of normal function definition
 func (d Dog) Call() {
-	fmt.Printf("Come here %s dog, %s \n", d.Color, d.Name)
+	fmt.Printf("Here comes a %s dog, %s.\n", d.Color, d.Name)
 }
 
 func main() {
@@ -25,7 +25,12 @@ func main() {
 	// create instance of object and set properties
 	Spot := Dog{Name: "Spot", Color: "brown"}
 
+	// or, try it like this...
+	var Rover Dog
+	Rover.Name = "Rover"
+	Rover.Color = "light blondish with some dark patches and very scruffy"
+
 	// call object method
 	Spot.Call()
-
+	Rover.Call()
 }
