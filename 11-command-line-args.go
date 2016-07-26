@@ -51,7 +51,7 @@ func main() {
 	// os.Args[1] = "--str=Foo"
 
 	// If you have flags and want just the arguments
-	// then after calling flag.Parse() you an call
+	// then after calling flag.Parse() you can call
 	// flag.Args which store only the args
 	args := flag.Args()
 	if len(args) > 0 {
