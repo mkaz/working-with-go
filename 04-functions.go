@@ -37,11 +37,18 @@ func Say2(s string) (phrase string) {
 }
 
 // Function with multiple parameters and return values
+func Divide(x, y float64) (float64, float64) {
+	q := math.Trunc(x / y)
+	r := math.Mod(x, y)
+	return q, r
+}
+
+// Function with multiple parameters and named return values
 // If the types are the same you can specify the type once at the end
-func Divide(x, y float64) (q, r float64) {
+func Divide2(x, y float64) (q, r float64) {
 	q = math.Trunc(x / y)
 	r = math.Mod(x, y)
-	return q, r
+	return
 }
 
 // Main function which will just call the above defined functions
