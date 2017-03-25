@@ -64,7 +64,41 @@ func case_insensitive() {
 	fmt.Println("Result:", result)
 }
 
+
+func sub_matches() {
+	// Submatches are what Go calls the matches that
+	// are grabbed by (.*) inside of a regular expression
+
+	str1 := "Hello @world@ Match"
+	sub_re, _ := regexp.Compile("@(.*)@")
+	m := sub_re.FindStringSubmatch(str1)
+	// FindStringSubmatch returns [@world@ world]
+	// so to just get the submatch you would use
+	if len(m) > 1 {
+		fmt.Println(m[1]) // submatch
+	}
+
+	// Escaping Special Characters
+	// if you wanted to match brackets or other special
+	// characters and try to just escape them like so
+	// "\[(.*)\]" you will get error
+	// unknown escape sequence: [
+
+	// you need to double up the slashes or a nicer
+	// solution is to wrap in ticks instead of quotes
+	str2 := "A [word] here and [there]"
+	esc_pattern := `\[(.*?)\]`
+	esc_re, _ := regexp.Compile(esc_pattern)
+
+	// this will only find the first
+	fmt.Println(esc_re.FindStringSubmatch(str2))
+
+	// use FindAll with second parameter for # of matches -1 = all
+	fmt.Println(esc_re.FindAllStringSubmatch(str2, -1))
+}
+
 func main() {
 	basic_regexes()
 	case_insensitive()
+	sub_matches()
 }
