@@ -33,4 +33,4 @@ func main() {
 // To run this go program in your terminal, requires having go installed
 // For installation info see: http://golang.org/doc/install
 // once installed run the following, from the terminal ($ is command-prompt)
-// $ go run 01-hello.g
+// $ go run 01-hello.go
