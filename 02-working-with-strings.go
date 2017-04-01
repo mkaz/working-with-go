@@ -52,4 +52,4 @@ func main() {
 }
 
 // run program in your terminal using
-// $ go run working-with-strings.go
+// $ go run 02-working-with-strings.go
