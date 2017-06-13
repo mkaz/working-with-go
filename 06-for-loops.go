@@ -14,7 +14,7 @@ func main() {
 	alphas := []string{"abc", "def", "ghi"}
 
 	// standard for loop
-	for i := 0; i < len(alphas); i += 1 {
+	for i := 0; i < len(alphas); i++ {
 		fmt.Printf("%d: %s \n", i, alphas[i])
 	}
 
