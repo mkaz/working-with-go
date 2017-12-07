@@ -52,4 +52,14 @@ func main() {
 		fmt.Println("Created: output.txt")
 	}
 
+	// write to an existing file appending the content
+	af, err := os.OpenFile(outfile, os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatalln("Error appending to file:", err)
+	}
+	defer af.Close()
+	if _, err = af.WriteString("Appending this text"); err != nil {
+		log.Fatalln("Error writing to file:", err)
+	}
+
 }
