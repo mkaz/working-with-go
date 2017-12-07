@@ -47,11 +47,11 @@ coding standard, `gofmt` which comes with standard install and `goimports`
 which will format and auto adjust import statements as needed.
 
 I recommend installing and configuring <a
-href="http://godoc.org/code.google.com/p/go.tools/cmd/goimports">goimports</a> to automatically run on save.
+href="https://godoc.org/golang.org/x/tools/cmd/goimports">goimports</a> to automatically run on save.
 
 Install goimports:
 
-    $ go get code.google.com/p/go.tools/cmd/goimports
+    $ go get golang.org/x/tools/cmd/goimports
 
 
 Setup vim to auto run `goimports` on save using vim-go:
