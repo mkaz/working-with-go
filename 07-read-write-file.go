@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
 )
 
 func main() {
@@ -32,12 +33,23 @@ func main() {
 	// so must cast to string first and then can display
 	fmt.Println(string(content))
 
+	// One of the above errors can be if the file does not exist
+	// You can check explicitly if file exists without trying to
+	// open using
+	if _, err := os.Stat("junk.foo"); os.IsNotExist(err) {
+		fmt.Println(">>>")
+		fmt.Println("File: junk.foo does not exist")
+	}
+
 	// write back to new file
 	// see documentation for which methods take what type
 	outfile := "output.txt"
 	err = ioutil.WriteFile(outfile, content, 0644)
 	if err != nil {
 		log.Fatalln("Error writing file: ", err)
+	} else {
+		fmt.Println(">>>")
+		fmt.Println("Created: output.txt")
 	}
 
 }
