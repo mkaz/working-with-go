@@ -93,7 +93,7 @@ func exists(elem int, array []int) bool {
 	return false
 }
 
-/* Return an Array of Primes up to max */
+/* PrimeArray returns an Array of Primes up to max */
 func PrimeArray(max int) []int {
 	var primes = []int{2, 3, 5}
 
