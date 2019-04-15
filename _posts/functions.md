@@ -62,3 +62,32 @@ func Divide2(x, y float64) (q, r float64) {
 }
 ```
 
+## Variadic Parameters
+
+Function that will take an arbitrary number of ints as arguments. Arguments can be use as a slice inside the function.
+
+```go
+func Sum(x ...int) int {
+	sum := 0
+	for _, v := range x {
+		sum += v
+	}
+	return sum
+}
+```
+
+You can call the function with multiple parameters:
+
+```go
+sum := Sum(1,3,5,7)
+fmt.Println(sum)
+```
+
+You can also call using the spread operator:
+
+```go
+nums := []int{1, 2, 3, 4, 5 }
+sum := Sum(nums...)
+fmt.Println(sum)
+```
+
