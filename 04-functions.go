@@ -51,6 +51,17 @@ func Divide2(x, y float64) (q, r float64) {
 	return
 }
 
+// Function with variadic parameters
+// Function that will take an arbitrary number of ints as arguments.
+// Arguments can be use as a slice inside the function
+func Sum(x ...int) int {
+	sum := 0
+	for _, v := range x {
+		sum += v
+	}
+	return sum
+}
+
 // Main function which will just call the above defined functions
 func main() {
 
@@ -65,5 +76,10 @@ func main() {
 
 	// this example uses Printf to format output, %v can be used for any type
 	fmt.Printf("Quotient: %v, Remainder %v \n", q, r)
+
+	// call the sum function and print sum of the parameters
+	nums := []int{1, 2, 3, 4, 5}
+	sum := Sum(nums...)
+	fmt.Println(sum)
 
 }
