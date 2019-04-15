@@ -110,8 +110,16 @@ pre, code {
 	color: #000;
 }
 
-code { font-weight: bold; }
+code { font-size: 1.0rem; font-weight: bold; }
 pre code { font-weight: normal; }
+
+a code {
+  color: #3366CC;
+}
+
+a code:hover {
+	color: #EE403D;
+}
 
 table {
   width: 100%;
