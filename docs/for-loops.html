@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title> For Loops | Working with Go </title>
+	<link rel="stylesheet" media="screen" href="static/style.css" >
+	<link rel="stylesheet" media="screen" href="static/prism.css" >
+
+</head>
+<body>
+
+<header>
+	<h3> Working with Go </h3>
+	<p> Code examples for Golang </p>
+</header>
+
+<main>
+	<aside>
+		
+			<a href="/working-wtih-go/hello.html">Hola Mundo</a><br/>
+		
+			<a href="/working-wtih-go/strings.html">Strings</a><br/>
+		
+			<a href="/working-wtih-go/slices.html">Slices</a><br/>
+		
+			<a href="/working-wtih-go/functions.html">Functions</a><br/>
+		
+			<a href="/working-wtih-go/control-structures.html">Control Structures</a><br/>
+		
+			<a href="/working-wtih-go/for-loops.html">For Loops</a><br/>
+		
+			<a href="/working-wtih-go/structs.html">Structs</a><br/>
+		
+			<a href="/working-wtih-go/maps.html">Maps</a><br/>
+		
+			<a href="/working-wtih-go/files.html">Files</a><br/>
+		
+			<a href="/working-wtih-go/read-dir.html">Read Directory</a><br/>
+		
+			<a href="/working-wtih-go/objects.html">Objects</a><br/>
+		
+			<a href="/working-wtih-go/interfaces.html">Interfaces</a><br/>
+		
+			<a href="/working-wtih-go/command-line.html">Command-line</a><br/>
+		
+			<a href="/working-wtih-go/date-time.html">Date/Time</a><br/>
+		
+			<a href="/working-wtih-go/sorting.html">Sorting</a><br/>
+		
+			<a href="/working-wtih-go/json.html">JSON</a><br/>
+		
+			<a href="/working-wtih-go/web-server.html">Web Server</a><br/>
+		
+			<a href="/working-wtih-go/guess-game.html">Guessing Game</a><br/>
+		
+			<a href="/working-wtih-go/rest-api.html">REST API</a><br/>
+		
+			<a href="/working-wtih-go/regexps.html">Regexp</a><br/>
+		
+			<a href="/working-wtih-go/memcache.html">Memcache</a><br/>
+		
+			<a href="/working-wtih-go/mysql.html">MySQL</a><br/>
+		
+	</aside>
+
+	<article>
+
+		<p>Go uses <code>for</code> for all loops, there is no <code>while</code> or <code>do-while</code> loops.</p>
+
+<h2>For Loop</h2>
+
+<pre><code class="language-go">
+alphas := []string{&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;}
+
+// standard for loop
+for i := 0; i &lt; len(alphas); i++ {
+	fmt.Printf(&quot;%d: %s \n&quot;, i, alphas[i])
+}
+
+// counting backwards
+for i := len(alphas)-1; i &gt;= 0; i-- {
+	fmt.Printf(&quot;%d: %s \n&quot;, i, alphas[i])
+}
+</code></pre>
+
+<h2>Using Range</h2>
+
+<p>Iterating over an array is easier using <code>range</code> function.</p>
+
+<pre><code class="language-go">for i, val := range alphas {
+	fmt.Printf(&quot;%d: %s \n&quot;, i, val)
+}
+</code></pre>
+
+<p>If you did not care about the value and only wanted the index</p>
+
+<pre><code class="language-go">for i := range alphas {
+	fmt.Println(i)
+}
+</code></pre>
+
+<p>If you did not care about the index and only the value, you need to use the <code>_</code> character.</p>
+
+<pre><code class="language-go">for _, val := range alphas {
+	fmt.Println(val)
+}
+</code></pre>
+
+<h2>Use For like  While</h2>
+
+<pre><code class="language-go">x := 0
+for x &lt; 10 {
+	fmt.Println(x)
+	x++
+}
+</code></pre>
+
+<h2>Infinite Loop</h2>
+
+<p>```go
+for {
+    fmt.Print(&ldquo;.&rdquo;)
+}</p>
+
+
+		<footer>
+			<nav>
+				<span class="prev">
+					
+						<a href="/working-with-go/control-structures.html"> &#171; Control Structures </a>
+					
+				</span>
+				<span class="next">
+					
+						<a href="/working-with-go/structs.html"> Structs &#187; </a>
+					
+				</span>
+			</nav>
+		</footer>
+	</article>
+</main>
+
+<footer>
+	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
+	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+</footer>
+
+<script src="static/prism.js" type="text/javascript"></script>
+</body>
+</html>

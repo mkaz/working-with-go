@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title> Strings | Working with Go </title>
+	<link rel="stylesheet" media="screen" href="static/style.css" >
+	<link rel="stylesheet" media="screen" href="static/prism.css" >
+
+</head>
+<body>
+
+<header>
+	<h3> Working with Go </h3>
+	<p> Code examples for Golang </p>
+</header>
+
+<main>
+	<aside>
+		
+			<a href="/working-wtih-go/hello.html">Hola Mundo</a><br/>
+		
+			<a href="/working-wtih-go/strings.html">Strings</a><br/>
+		
+			<a href="/working-wtih-go/slices.html">Slices</a><br/>
+		
+			<a href="/working-wtih-go/functions.html">Functions</a><br/>
+		
+			<a href="/working-wtih-go/control-structures.html">Control Structures</a><br/>
+		
+			<a href="/working-wtih-go/for-loops.html">For Loops</a><br/>
+		
+			<a href="/working-wtih-go/structs.html">Structs</a><br/>
+		
+			<a href="/working-wtih-go/maps.html">Maps</a><br/>
+		
+			<a href="/working-wtih-go/files.html">Files</a><br/>
+		
+			<a href="/working-wtih-go/read-dir.html">Read Directory</a><br/>
+		
+			<a href="/working-wtih-go/objects.html">Objects</a><br/>
+		
+			<a href="/working-wtih-go/interfaces.html">Interfaces</a><br/>
+		
+			<a href="/working-wtih-go/command-line.html">Command-line</a><br/>
+		
+			<a href="/working-wtih-go/date-time.html">Date/Time</a><br/>
+		
+			<a href="/working-wtih-go/sorting.html">Sorting</a><br/>
+		
+			<a href="/working-wtih-go/json.html">JSON</a><br/>
+		
+			<a href="/working-wtih-go/web-server.html">Web Server</a><br/>
+		
+			<a href="/working-wtih-go/guess-game.html">Guessing Game</a><br/>
+		
+			<a href="/working-wtih-go/rest-api.html">REST API</a><br/>
+		
+			<a href="/working-wtih-go/regexps.html">Regexp</a><br/>
+		
+			<a href="/working-wtih-go/memcache.html">Memcache</a><br/>
+		
+			<a href="/working-wtih-go/mysql.html">MySQL</a><br/>
+		
+	</aside>
+
+	<article>
+
+		<h1>Working with Strings</h1>
+
+<p>A set of examples using Golang and creating and manipulating strings. The <a href="http://golang.org/pkg/strings/"><code>strings</code></a> standard library contains most of the functions you&rsquo;ll use to work with string.</p>
+
+<p>You can create and set a variable in one step using <code>:=</code> operator. Go will automatically determine the type by the assignment.</p>
+
+<pre><code class="language-go">str := &quot;This is an example string&quot;
+</code></pre>
+
+<p>In general, Go does not operate on standard values using an object oriented dot notation like JavaScript and Python. Instead, the function typically involve passing in the variable you are working on.</p>
+
+<pre><code class="language-go">exists := strings.Contains(str, &quot;example&quot;)
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;     // for standard output
+	&quot;strings&quot; // for manipulating strings
+)
+
+func main() {
+
+	// create a string variable
+	str := &quot;HI, I'M UPPER CASE&quot;
+
+	// convert to lower case
+	lower := strings.ToLower(str)
+
+	// output to show its really lower case
+	fmt.Println(lower)
+
+	// check if string contains another string
+	if strings.Contains(lower, &quot;case&quot;) {
+		fmt.Println(&quot;Yes, exists!&quot;)
+	}
+}
+</code></pre>
+
+<h2>Strings as Array of Characters</h2>
+
+<p>Strings in Go are an array of characters and can referenced as such.</p>
+
+<pre><code class="language-go">str := &quot;abcdefghijklmnopqrstuvwxyz&quot;
+fmt.Println(&quot;Chars 3-10: &quot; + str[3:10])
+
+// printing out first 5 characters
+fmt.Println(&quot;First Five: &quot; + str[:5])
+
+// printing out from 13 to end
+fmt.Println(&quot;From 13 on: &quot; + str[13:])
+</code></pre>
+
+<p>The Go Playground is a useful online environment you can run Go code in your browser. See the above example in the Go Playground here: <a href="https://play.golang.org/p/DC7R7XKzZ5G">https://play.golang.org/p/DC7R7XKzZ5G</a></p>
+
+<h2>Split Strings</h2>
+
+<p>Split a string on a specific character or word</p>
+
+<pre><code class="language-go">sentence := &quot;I'm a sentence made up of words&quot;
+words := strings.Split(sentence, &quot; &quot;)
+fmt.Printf(&quot;%v \n&quot;, words)
+</code></pre>
+
+<p>If you were splitting on whitespace, using Fields is better because it will split on all whitespace characters, not just a space.</p>
+
+<pre><code class="language-go">sentence := &quot;I'm a sentence made up of words&quot;
+fields := strings.Fields(sentence)
+fmt.Printf(&quot;%v \n&quot;, fields)
+</code></pre>
+
+<h2>String Replace</h2>
+
+<p>You can replace a string using <code>strings.Replace</code></p>
+
+<pre><code class="language-go">str := &quot;The blue whale loves blue fish.&quot;
+newstr := strings.Replace(str, &quot;blue&quot;, &quot;red&quot;, 1)
+&gt;&gt; &quot;The red whale loves blue fish.&quot;
+</code></pre>
+
+<p>The <code>strings.Replace</code> function requires passing in how many replacements it should do. You can pass in <code>-1</code> to replace all.</p>
+
+<pre><code class="language-go">str := &quot;The blue whale loves blue fish.&quot;
+newstr := strings.Replace(str, &quot;blue&quot;, &quot;red&quot;, -1)
+&gt;&gt; &quot;The red whale loves red fish.&quot;
+</code></pre>
+
+<p>As of, Go v1.12, there is a new <code>strings.ReplaceAll</code> that does not have the fourth argument, it will replace all.</p>
+
+<h2>Strings HasPrefix and HasSuffix</h2>
+
+<p>The Go functions for checking if a strings starts with, or ends with, another string are <code>strings.HasPrefix()</code> and <code>strings.HasSuffix()</code>.</p>
+
+<pre><code class="language-go">path := &quot;/home/mkaz&quot;
+isAbsolute := strings.HasPrefix(path, &quot;/&quot;)
+
+dir := &quot;/home/mkaz/&quot;
+hasTrailingSlash := strings.HasSuffix(path, &quot;/&quot;)
+</code></pre>
+
+
+		<footer>
+			<nav>
+				<span class="prev">
+					
+						<a href="/working-with-go/hello.html"> &#171; Hola Mundo </a>
+					
+				</span>
+				<span class="next">
+					
+						<a href="/working-with-go/slices.html"> Slices &#187; </a>
+					
+				</span>
+			</nav>
+		</footer>
+	</article>
+</main>
+
+<footer>
+	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
+	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+</footer>
+
+<script src="static/prism.js" type="text/javascript"></script>
+</body>
+</html>

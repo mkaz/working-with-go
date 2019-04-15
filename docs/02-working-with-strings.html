@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title> Working with Strings | Working with Go </title>
+	<link rel="stylesheet" media="screen" href="/style.css" >
+	<link rel="stylesheet" media="screen" href="/prism.css" >
+
+</head>
+<body>
+
+<header>
+	<h3> Working with Go </h3>
+	<p> Code examples for Golang </p>
+</header>
+
+<main>
+	<aside>
+		
+			<a href="/01-hello.html">Hola Mundo</a><br/>
+		
+			<a href="/02-working-with-strings.html">Working with Strings</a><br/>
+		
+	</aside>
+
+	<article>
+
+		<h1>Working with strings</h1>
+
+<p>Working with strings, manipulating, creating etc
+Most strings functions are stored in standard library &ldquo;strings&rdquo;
+See: <a href="http://golang.org/pkg/strings/">http://golang.org/pkg/strings/</a></p>
+
+<pre><code class="language-go">package main
+
+// Note: if you include a package but don't use it, the Go compiler will barf
+import (
+	&quot;fmt&quot;     // for standard output
+	&quot;strings&quot; // for manipulating strings
+)
+
+// this function gets run on program execution
+func main() {
+
+	// create a string variable
+	str := &quot;HI, I'M UPPER CASE&quot;
+
+	// convert to lower case
+	lower := strings.ToLower(str)
+
+	// output to show its really lower case
+	fmt.Println(lower)
+
+	// check if string contains another string
+	if strings.Contains(lower, &quot;case&quot;) {
+		fmt.Println(&quot;Yes, exists!&quot;)
+	}
+
+	// strings are arrays of characters
+	// printing out characters 3 to 9
+	fmt.Println(&quot;Characters 3-9: &quot; + str[3:9])
+
+	// printing out first 5 characters
+	fmt.Println(&quot;First Five: &quot; + str[:5])
+
+	// split a string on a specific character or word
+	sentence := &quot;I'm a sentence made up of words&quot;
+	words := strings.Split(sentence, &quot; &quot;)
+	fmt.Printf(&quot;%v \n&quot;, words)
+
+	// If you were splitting on whitespace, using Fields is better because
+	// it will split on more than just the space, but all whitespace chars
+	fields := strings.Fields(sentence)
+	fmt.Printf(&quot;%v \n&quot;, fields)
+
+}
+</code></pre>
+
+<p>Run program in your terminal using:</p>
+
+<pre><code>go run 02-working-with-strings.go
+</code></pre>
+
+
+		<footer>
+			<nav>
+				<span class="prev">
+					
+						<a href="/01-hello.html"> &#171; Hola Mundo </a>
+					
+				</span>
+				<span class="next">
+					
+				</span>
+			</nav>
+		</footer>
+	</article>
+</main>
+
+<footer>
+	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
+	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+</footer>
+
+<script src="/prism.js" type="text/javascript"></script>
+</body>
+</html>

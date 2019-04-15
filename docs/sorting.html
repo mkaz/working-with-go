@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title> Sorting | Working with Go </title>
+	<link rel="stylesheet" media="screen" href="static/style.css" >
+	<link rel="stylesheet" media="screen" href="static/prism.css" >
+
+</head>
+<body>
+
+<header>
+	<h3> Working with Go </h3>
+	<p> Code examples for Golang </p>
+</header>
+
+<main>
+	<aside>
+		
+			<a href="/working-wtih-go/hello.html">Hola Mundo</a><br/>
+		
+			<a href="/working-wtih-go/strings.html">Strings</a><br/>
+		
+			<a href="/working-wtih-go/slices.html">Slices</a><br/>
+		
+			<a href="/working-wtih-go/functions.html">Functions</a><br/>
+		
+			<a href="/working-wtih-go/control-structures.html">Control Structures</a><br/>
+		
+			<a href="/working-wtih-go/for-loops.html">For Loops</a><br/>
+		
+			<a href="/working-wtih-go/structs.html">Structs</a><br/>
+		
+			<a href="/working-wtih-go/maps.html">Maps</a><br/>
+		
+			<a href="/working-wtih-go/files.html">Files</a><br/>
+		
+			<a href="/working-wtih-go/read-dir.html">Read Directory</a><br/>
+		
+			<a href="/working-wtih-go/objects.html">Objects</a><br/>
+		
+			<a href="/working-wtih-go/interfaces.html">Interfaces</a><br/>
+		
+			<a href="/working-wtih-go/command-line.html">Command-line</a><br/>
+		
+			<a href="/working-wtih-go/date-time.html">Date/Time</a><br/>
+		
+			<a href="/working-wtih-go/sorting.html">Sorting</a><br/>
+		
+			<a href="/working-wtih-go/json.html">JSON</a><br/>
+		
+			<a href="/working-wtih-go/web-server.html">Web Server</a><br/>
+		
+			<a href="/working-wtih-go/guess-game.html">Guessing Game</a><br/>
+		
+			<a href="/working-wtih-go/rest-api.html">REST API</a><br/>
+		
+			<a href="/working-wtih-go/regexps.html">Regexp</a><br/>
+		
+			<a href="/working-wtih-go/memcache.html">Memcache</a><br/>
+		
+			<a href="/working-wtih-go/mysql.html">MySQL</a><br/>
+		
+	</aside>
+
+	<article>
+
+		<h1>Sorting Arrays and Maps</h1>
+
+<p>The <a href="https://golang.org/pkg/sort/"><code>sort</code></a> standard library is used for sorting slices, maps, and user define collections.</p>
+
+<h2>Sort Alphabetical</h2>
+
+<p>Use <code>sort.Strings()</code> to sort alphabetically</p>
+
+<pre><code class="language-go">abc := []string{&quot;jkl&quot;, &quot;ghi&quot;, &quot;abc&quot;, &quot;def&quot;}
+sort.Strings(abc)
+fmt.Println(&quot;Sorted ABC:&quot;, abc)
+</code></pre>
+
+<h2>Sort Numeric</h2>
+
+<p>Use <code>sort.Ints()</code> to sort numerically</p>
+
+<pre><code class="language-go">nums := []int{4, 2, 12, 5, 1, 3}
+sort.Ints(nums)
+fmt.Println(&quot;Sorted Nums:&quot;, nums)
+</code></pre>
+
+<h2>Reverse Sort</h2>
+
+<p>Reverse sort, need to cast <code>abc</code> as a StringSlice to reverse and sort</p>
+
+<pre><code class="language-go">sort.Sort(sort.Reverse(sort.StringSlice(abc)))
+fmt.Println(&quot;Reverse ABC:&quot;, abc)
+</code></pre>
+
+<h2>Sort Maps</h2>
+
+<p>To sort a map by keys, pull an array of keys out of the map, sort the keys and then iterate over the sorted keys. A map by itself is not sortable.</p>
+
+<pre><code class="language-go">hash := map[string]int{
+	&quot;c&quot;: 3,
+	&quot;a&quot;: 1,
+	&quot;b&quot;: 2,
+	&quot;e&quot;: 5,
+	&quot;d&quot;: 4,
+}
+
+// Create array of kys
+var keys []string
+for k := range hash {
+	keys = append(keys, k)
+}
+
+// Sort keys
+sort.Strings(keys)
+
+// Use ordered keys to loop through hash
+for i := range keys {
+	fmt.Printf(&quot;%s =&gt; %v\n&quot;, keys[i], hash[keys[i]])
+}
+</code></pre>
+
+
+		<footer>
+			<nav>
+				<span class="prev">
+					
+						<a href="/working-with-go/date-time.html"> &#171; Date/Time </a>
+					
+				</span>
+				<span class="next">
+					
+						<a href="/working-with-go/json.html"> JSON &#187; </a>
+					
+				</span>
+			</nav>
+		</footer>
+	</article>
+</main>
+
+<footer>
+	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
+	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+</footer>
+
+<script src="static/prism.js" type="text/javascript"></script>
+</body>
+</html>

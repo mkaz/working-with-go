@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title> Hola Mundo | Working with Go </title>
+	<link rel="stylesheet" media="screen" href="/style.css" >
+	<link rel="stylesheet" media="screen" href="/prism.css" >
+
+</head>
+<body>
+
+<header>
+	<h3> Working with Go </h3>
+	<p> Code examples for Golang </p>
+</header>
+
+<main>
+	<aside>
+		
+			<a href="/01-hello.html">Hola Mundo</a><br/>
+		
+			<a href="/02-working-with-strings.html">Working with Strings</a><br/>
+		
+	</aside>
+
+	<article>
+
+		<h1>Hola Mundo in Go</h1>
+
+<p>Here is your first go program.</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+
+	phrase := &quot;Hola Mundo!&quot;
+
+	fmt.Println(phrase)
+}
+</code></pre>
+
+<p>All programs must be part of a package and main is the default package</p>
+
+<p>Import standard library packages, they are not included by default.
+The standard library is your best friend in Go, it can do just about
+everything. See all the glory -&gt; <a href="http://golang.org/pkg/">http://golang.org/pkg/</a></p>
+
+<p>fmt library provides basic standard out formatting functions</p>
+
+<p>the main package requires a main() function which gets called when run</p>
+
+<p>define a variable, all variables have types, but the go compiler will
+automatically detect the type if possible, this is a string</p>
+
+<p>// To run this go program in your terminal, requires having go installed
+// For installation info see: <a href="http://golang.org/doc/install">http://golang.org/doc/install</a>
+// once installed run the following, from the terminal ($ is command-prompt)
+// $ go run 01-hello.go</p>
+
+
+		<footer>
+			<nav>
+				<span class="prev">
+					
+				</span>
+				<span class="next">
+					
+						<a href="/02-working-with-strings.html"> Working with Strings &#187; </a>
+					
+				</span>
+			</nav>
+		</footer>
+	</article>
+</main>
+
+<footer>
+	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
+	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+</footer>
+
+<script src="/prism.js" type="text/javascript"></script>
+</body>
+</html>

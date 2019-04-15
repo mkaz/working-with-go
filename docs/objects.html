@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title> Objects | Working with Go </title>
+	<link rel="stylesheet" media="screen" href="static/style.css" >
+	<link rel="stylesheet" media="screen" href="static/prism.css" >
+
+</head>
+<body>
+
+<header>
+	<h3> Working with Go </h3>
+	<p> Code examples for Golang </p>
+</header>
+
+<main>
+	<aside>
+		
+			<a href="/working-wtih-go/hello.html">Hola Mundo</a><br/>
+		
+			<a href="/working-wtih-go/strings.html">Strings</a><br/>
+		
+			<a href="/working-wtih-go/slices.html">Slices</a><br/>
+		
+			<a href="/working-wtih-go/functions.html">Functions</a><br/>
+		
+			<a href="/working-wtih-go/control-structures.html">Control Structures</a><br/>
+		
+			<a href="/working-wtih-go/for-loops.html">For Loops</a><br/>
+		
+			<a href="/working-wtih-go/structs.html">Structs</a><br/>
+		
+			<a href="/working-wtih-go/maps.html">Maps</a><br/>
+		
+			<a href="/working-wtih-go/files.html">Files</a><br/>
+		
+			<a href="/working-wtih-go/read-dir.html">Read Directory</a><br/>
+		
+			<a href="/working-wtih-go/objects.html">Objects</a><br/>
+		
+			<a href="/working-wtih-go/interfaces.html">Interfaces</a><br/>
+		
+			<a href="/working-wtih-go/command-line.html">Command-line</a><br/>
+		
+			<a href="/working-wtih-go/date-time.html">Date/Time</a><br/>
+		
+			<a href="/working-wtih-go/sorting.html">Sorting</a><br/>
+		
+			<a href="/working-wtih-go/json.html">JSON</a><br/>
+		
+			<a href="/working-wtih-go/web-server.html">Web Server</a><br/>
+		
+			<a href="/working-wtih-go/guess-game.html">Guessing Game</a><br/>
+		
+			<a href="/working-wtih-go/rest-api.html">REST API</a><br/>
+		
+			<a href="/working-wtih-go/regexps.html">Regexp</a><br/>
+		
+			<a href="/working-wtih-go/memcache.html">Memcache</a><br/>
+		
+			<a href="/working-wtih-go/mysql.html">MySQL</a><br/>
+		
+	</aside>
+
+	<article>
+
+		<h1>Object Oriented Programming</h1>
+
+<p>Go does not have objects and classes, so is not a true object oriented programming. However, you can add methods to types. This gives you most of the same ability without the added complexity of full OOP.</p>
+
+<p>A method is a function with a <em>receiver</em> defined first. Using the <code>Dog</code> type from the <a href="/structs.html">structs example</a>.</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Dog struct {
+	Name  string
+	Color string
+}
+
+func (d Dog) Call() {
+	fmt.Printf(&quot;Here comes a %s dog, %s.\n&quot;, d.Color, d.Name)
+}
+
+func main() {
+
+	// create instance of dog
+	Spot := Dog{Name: &quot;Spot&quot;, Color: &quot;brown&quot;}
+
+	// call object method
+	Spot.Call()
+}
+</code></pre>
+
+<h2>Limitations</h2>
+
+<p>You can define methods on custom types, but are limited to types that are defined in the same package as the method. So you cannot define a method on built-in types, you would first need to extend.</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type MyInt int
+
+func (i MyInt) Double() MyInt {
+	return i * 2
+}
+
+func main() {
+	x := MyInt(3)
+	fmt.Println(x.Double())
+}
+</code></pre>
+
+
+		<footer>
+			<nav>
+				<span class="prev">
+					
+						<a href="/working-with-go/read-dir.html"> &#171; Read Directory </a>
+					
+				</span>
+				<span class="next">
+					
+						<a href="/working-with-go/interfaces.html"> Interfaces &#187; </a>
+					
+				</span>
+			</nav>
+		</footer>
+	</article>
+</main>
+
+<footer>
+	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
+	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+</footer>
+
+<script src="static/prism.js" type="text/javascript"></script>
+</body>
+</html>

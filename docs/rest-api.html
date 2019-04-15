@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title> REST API | Working with Go </title>
+	<link rel="stylesheet" media="screen" href="static/style.css" >
+	<link rel="stylesheet" media="screen" href="static/prism.css" >
+
+</head>
+<body>
+
+<header>
+	<h3> Working with Go </h3>
+	<p> Code examples for Golang </p>
+</header>
+
+<main>
+	<aside>
+		
+			<a href="/working-wtih-go/hello.html">Hola Mundo</a><br/>
+		
+			<a href="/working-wtih-go/strings.html">Strings</a><br/>
+		
+			<a href="/working-wtih-go/slices.html">Slices</a><br/>
+		
+			<a href="/working-wtih-go/functions.html">Functions</a><br/>
+		
+			<a href="/working-wtih-go/control-structures.html">Control Structures</a><br/>
+		
+			<a href="/working-wtih-go/for-loops.html">For Loops</a><br/>
+		
+			<a href="/working-wtih-go/structs.html">Structs</a><br/>
+		
+			<a href="/working-wtih-go/maps.html">Maps</a><br/>
+		
+			<a href="/working-wtih-go/files.html">Files</a><br/>
+		
+			<a href="/working-wtih-go/read-dir.html">Read Directory</a><br/>
+		
+			<a href="/working-wtih-go/objects.html">Objects</a><br/>
+		
+			<a href="/working-wtih-go/interfaces.html">Interfaces</a><br/>
+		
+			<a href="/working-wtih-go/command-line.html">Command-line</a><br/>
+		
+			<a href="/working-wtih-go/date-time.html">Date/Time</a><br/>
+		
+			<a href="/working-wtih-go/sorting.html">Sorting</a><br/>
+		
+			<a href="/working-wtih-go/json.html">JSON</a><br/>
+		
+			<a href="/working-wtih-go/web-server.html">Web Server</a><br/>
+		
+			<a href="/working-wtih-go/guess-game.html">Guessing Game</a><br/>
+		
+			<a href="/working-wtih-go/rest-api.html">REST API</a><br/>
+		
+			<a href="/working-wtih-go/regexps.html">Regexp</a><br/>
+		
+			<a href="/working-wtih-go/memcache.html">Memcache</a><br/>
+		
+			<a href="/working-wtih-go/mysql.html">MySQL</a><br/>
+		
+	</aside>
+
+	<article>
+
+		<h1>REST API</h1>
+
+<p>Use the <a href="https://golang.org/pkg/net/http/"><code>net/http</code></a> standard library to create external http calls. You can combine this with the <a href="json.html">parsing of JSON</a> to work with external APIs.</p>
+
+<p>The follownig example pulls in data from the Reddit API to get latest posts from golang sub. The key to understanding JSON decoding is understanding the data structure you receive the data. Once data structs are mapped, it becomes relatively straight forward</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;encoding/json&quot;
+	&quot;io/ioutil&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+)
+
+// create data structures to hold JSON data
+// this needs to match the fields in the JSON feed
+// see sample data fetch at bottom of this file
+
+// create an individual entry data structure
+// this does not need to hold every field, just the ones we want
+type Entry struct {
+	Title     string
+	Author    string
+	URL       string
+	Permalink string
+}
+
+// the feed is the full JSON data structure
+// this sets up the array of Entry types (defined above)
+type Feed struct {
+	Data struct {
+		Children []struct {
+			Data Entry
+		}
+	}
+}
+
+func main() {
+	// url of REST endpoint we are grabbing data from
+	url := &quot;https://www.reddit.com/r/golang/new.json&quot;
+
+	// fetch url
+	resp, err := http.Get(url)
+	if err != nil {
+		log.Fatalln(&quot;Error fetching:&quot;, err)
+	}
+	// defer response close
+	defer resp.Body.Close()
+
+	// confirm we received an OK status
+	if resp.StatusCode != http.StatusOK {
+		log.Fatalln(&quot;Error Status not OK:&quot;, resp.StatusCode)
+	}
+
+	// read the entire body of the response
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalln(&quot;Error reading body:&quot;, err)
+	}
+
+	// create an empty instance of Feed struct
+	// this is what gets filled in when unmarshaling JSON
+	var entries Feed
+	if err := json.Unmarshal(body, &amp;entries); err != nil {
+		log.Fatalln(&quot;Error decoing JSON&quot;, err)
+	}
+
+	// loop through the children and create entry objects
+	for _, ed := range entries.Data.Children {
+		entry := ed.Data
+		log.Println(&quot;&gt;&gt;&gt;&quot;)
+		log.Println(&quot;Title   :&quot;, entry.Title)
+		log.Println(&quot;Author  :&quot;, entry.Author)
+		log.Println(&quot;URL     :&quot;, entry.URL)
+		log.Printf(&quot;Comments: http://reddit.com%s \n&quot;, entry.Permalink)
+	}
+}
+</code></pre>
+
+
+		<footer>
+			<nav>
+				<span class="prev">
+					
+						<a href="/working-with-go/guess-game.html"> &#171; Guessing Game </a>
+					
+				</span>
+				<span class="next">
+					
+						<a href="/working-with-go/regexps.html"> Regexp &#187; </a>
+					
+				</span>
+			</nav>
+		</footer>
+	</article>
+</main>
+
+<footer>
+	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
+	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+</footer>
+
+<script src="static/prism.js" type="text/javascript"></script>
+</body>
+</html>

@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
 	<title> {{ .Title }} | Working with Go </title>
-	<link rel="stylesheet" media="screen" href="/static/style.css" >
-	<link rel="stylesheet" media="screen" href="/static/prism.css" >
+	<link rel="stylesheet" media="screen" href="static/style.css" >
+	<link rel="stylesheet" media="screen" href="static/prism.css" >
 
 </head>
 <body>
@@ -19,7 +19,7 @@
 <main>
 	<aside>
 		{{ range .Recent.Reverse }}
-			<a href="{{ .Url }}">{{ .Title }}</a><br/>
+			<a href="/working-wtih-go{{ .Url }}">{{ .Title }}</a><br/>
 		{{ end }}
 	</aside>
 
@@ -31,12 +31,12 @@
 			<nav>
 				<span class="prev">
 					{{ if .PrevUrl }}
-						<a href="{{ .PrevUrl }}"> &#171; {{ .PrevTitle }} </a>
+						<a href="/working-with-go{{ .PrevUrl }}"> &#171; {{ .PrevTitle }} </a>
 					{{ end }}
 				</span>
 				<span class="next">
 					{{ if .NextUrl }}
-						<a href="{{ .NextUrl }}"> {{ .NextTitle }} &#187; </a>
+						<a href="/working-with-go{{ .NextUrl }}"> {{ .NextTitle }} &#187; </a>
 					{{ end }}
 				</span>
 			</nav>
@@ -49,6 +49,6 @@
 	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
 </footer>
 
-<script src="/static/prism.js" type="text/javascript"></script>
+<script src="static/prism.js" type="text/javascript"></script>
 </body>
 </html>

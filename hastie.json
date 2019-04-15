@@ -1,5 +1,6 @@
 {
     "SourceDir"  : "_posts",
     "LayoutDir"  : "_layouts",
-    "PublishDir" : "public"
+    "PublishDir" : "docs"
 }
+
