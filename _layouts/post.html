@@ -40,13 +40,19 @@
 					{{ end }}
 				</span>
 			</nav>
+
+			{{ if .SourceFile }}
+			<div style="margin-top: 5rem">
+				Contribute: <a href="https://github.com/mkaz/working-with-go/blob/master/{{.SourceFile}}">source</a>
+			</div>
+			{{ end }}
+			</nav>
 		</footer>
 	</article>
 </main>
 
 <footer>
-	<p>Created by: Marcus Kazmierczak, <a href="https://mkaz.blog/" rel="author">mkaz.blog</a></p>
-	<p>Source: <a href="https://github.com/mkaz/working-with-go">github.com/mkaz/working-with-go</a></p>
+	<p>An <a href="https://mkaz.blog/" rel="author">mkaz</a> production.</p>
 </footer>
 
 <script src="static/prism.js" type="text/javascript"></script>
