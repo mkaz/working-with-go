@@ -81,7 +81,5 @@ If you are starting out and want to learn how to program and choose Go as your f
 The official Go language site has a [Tour of Go](http://tour.golang.org/) which is an interactive walk through, another good introduction to the language.
 
 
-## License
-
-Working with Go is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+Getting started: [Hola Mundo!](hello.html)
 
