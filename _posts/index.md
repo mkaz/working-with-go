@@ -36,7 +36,7 @@ $ ./hello
 
 This tutorial will use `$` as the command prompt, and `>>` as the output from the program.
 
-Go includes a convenience function which allows you to build/run in a single command, note this does not produce a binary.
+Go includes a convenience function `run` that allows you to build and run in a single command, but note this does not produce a binary.
 
 ```
 $ go run hello.go
@@ -47,12 +47,12 @@ $ go run hello.go
 
 Go is purposely light-weight and simply, making it quite flexible for just about any set of developer tools. A full blown IDE, such as Eclipse, is rarely used. Most developers opt for their favorite text editor and the terminal to run. This is how I develop on Linux.
 
-My primarily editor is **Vim**, I recommend using <a
-href="https://github.com/fatih/vim-go">vim-go</a> package which includes in syntax support, and some convience functions.
+My primarily editor is **Vim**, I recommend using the <a
+href="https://github.com/fatih/vim-go">vim-go</a> package which includes syntax support, and some convenience functions.
 
-Go has two tools that can automatically format your source code to the Go coding standard, `gofmt` which comes with standard install and `goimports` which will format and auto adjust import statements as needed.
+Go has two tools that can automatically format your source code to the Go coding standard, `gofmt` comes with the standard install and `goimports` which will format and auto adjust import statements as needed.
 
-I highly recommend `goimports` because Go will not compile if imports are missing or extra. The `goimports` saves this hassle when adding removing things during development.
+I highly recommend `goimports` because Go will not compile if imports are missing or extra. The `goimports` command saves this hassle when adding removing things during development.
 
 Whatever editor you use, I recommend installing and configuring <a
 href="https://godoc.org/golang.org/x/tools/cmd/goimports">goimports</a> to automatically run on save.
@@ -78,7 +78,7 @@ This set of examples assumes a certain level of programming experience and is in
 
 If you are starting out and want to learn how to program and choose Go as your first language, check out [Learn Programming in Go](http://www.golang-book.com/)
 
-The official Go language site has a [Tour of Go](http://tour.golang.org/) which is an interactive walk through, another good introduction to the language.
+The official Go language site has a [Tour of Go](http://tour.golang.org/) that is an interactive walk through, another good introduction to the language.
 
 
 Getting started: [Hola Mundo!](hello.html)

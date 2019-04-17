@@ -6,7 +6,7 @@ date: 2014-05-21
 
 # Regular Expressions
 
-Use the [`regexp`](http://golang.org/pkg/regexp/) standard library to work with regular expresssions.
+Use the [`regexp`](http://golang.org/pkg/regexp/) standard library to work with regular expressions.
 
 
 ## Basic Regexp

@@ -45,7 +45,7 @@ fmt.Println("Month: ", now.Month())
 
 ## Built-in Formats
 
-There are a set of [built-in time constants](http://golang.org/pkg/time/#pkg-constants) avilable for date formatting.
+There are a set of [built-in time constants](http://golang.org/pkg/time/#pkg-constants) available for date formatting.
 
 ```
 const (

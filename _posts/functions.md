@@ -10,7 +10,7 @@ Examples on how to use functions in go
 
 ## Basic Function
 
-An example of a basic function accepting one parameter and no return value. The parameter type must be specified in the function defintion.
+An example of a basic function accepting one parameter and no return value. The parameter type must be specified in the function definition.
 
 ```go
 func Echo(s string) {
@@ -20,7 +20,7 @@ func Echo(s string) {
 
 ## Function with Return Value
 
-Definining a function with a return value, you must specify the type for the return value.
+Defining a function with a return value, you must specify the type for the return value.
 
 ```go
 func Say(s string) string {

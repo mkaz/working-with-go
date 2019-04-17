@@ -28,7 +28,7 @@ The main package requires a `main()` function, this is called when the program i
 
 Go will run `init()` function before `main()`, if it exists.
 
-Here is an expanded Hello World program which uses a global variable `phrase` defined as a string. **All variables have types.** The go compiler will automatically detect the type if possible.
+Here is an expanded Hello World program that uses a global variable `phrase` defined as a string. **All variables have types.** The go compiler will automatically detect the type if possible.
 
 ```go
 package main

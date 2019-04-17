@@ -132,7 +132,7 @@ fmt.Println(people)
 
 <h2>Mapping Struct and JSON Field</h2>
 
-<p>The JSON fieldnames may not always match the struct names. Go will automatically manage uppercase and lowercase fields, but if they are completely different you can use struct field tags to label.</p>
+<p>The JSON field names may not always match the struct names. Go will automatically manage uppercase and lowercase fields, but if they are completely different you can use struct field tags to label.</p>
 
 <pre><code class="language-go">type Person {
 	Name string `json:&quot;username&quot;`

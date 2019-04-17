@@ -6,8 +6,7 @@ date: 2014-05-03
 
 # Working with Slices
 
-Go has an array type, but it has a fixed size. Slices in Go are dynamically-sized and more flexible. Slices are the common data
-type you will work with i.
+Go has an array type, but it has a fixed size. Slices in Go are dynamically-sized and more flexible. Slices are the common data type you will work with.
 
 The specification for slices are `[]T` where T is the type, for example `[]string` is a set of strings, or `[]int` is a set of integers.
 

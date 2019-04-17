@@ -8,7 +8,7 @@ date: 2014-05-20
 
 Use the [`net/http`](https://golang.org/pkg/net/http/) standard library to create external http calls. You can combine this with the [parsing of JSON](json.html) to work with external APIs.
 
-The follownig example pulls in data from the Reddit API to get latest posts from golang sub. The key to understanding JSON decoding is understanding the data structure you receive the data. Once data structs are mapped, it becomes relatively straight forward
+The following example pulls in data from the Reddit API to get latest posts from golang sub. The key to understanding JSON decoding is understanding the data structure you receive the data. Once data structs are mapped, it becomes relatively straight forward
 
 ```go
 package main

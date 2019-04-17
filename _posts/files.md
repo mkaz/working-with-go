@@ -20,7 +20,7 @@ if err != nil {
 }
 ```
 
-The content is returned as a `[]byte` and not a string. You need to cast to a string to use as such, for exampe to display. Use `string()` to cast a `[]byte` to `string` type.
+The content is returned as a `[]byte` and not a string. You need to cast to a string to use as such, for example to display. Use `string()` to cast a `[]byte` to `string` type.
 
 ```go
 fmt.Println(string(content))

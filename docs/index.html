@@ -96,7 +96,7 @@
 
 <p>This tutorial will use <code>$</code> as the command prompt, and <code>&gt;&gt;</code> as the output from the program.</p>
 
-<p>Go includes a convenience function which allows you to build/run in a single command, note this does not produce a binary.</p>
+<p>Go includes a convenience function <code>run</code> that allows you to build and run in a single command, but note this does not produce a binary.</p>
 
 <pre><code>$ go run hello.go
 &gt;&gt; Hola Mundo!
@@ -106,12 +106,12 @@
 
 <p>Go is purposely light-weight and simply, making it quite flexible for just about any set of developer tools. A full blown IDE, such as Eclipse, is rarely used. Most developers opt for their favorite text editor and the terminal to run. This is how I develop on Linux.</p>
 
-<p>My primarily editor is <strong>Vim</strong>, I recommend using <a
-href="https://github.com/fatih/vim-go">vim-go</a> package which includes in syntax support, and some convience functions.</p>
+<p>My primarily editor is <strong>Vim</strong>, I recommend using the <a
+href="https://github.com/fatih/vim-go">vim-go</a> package which includes syntax support, and some convenience functions.</p>
 
-<p>Go has two tools that can automatically format your source code to the Go coding standard, <code>gofmt</code> which comes with standard install and <code>goimports</code> which will format and auto adjust import statements as needed.</p>
+<p>Go has two tools that can automatically format your source code to the Go coding standard, <code>gofmt</code> comes with the standard install and <code>goimports</code> which will format and auto adjust import statements as needed.</p>
 
-<p>I highly recommend <code>goimports</code> because Go will not compile if imports are missing or extra. The <code>goimports</code> saves this hassle when adding removing things during development.</p>
+<p>I highly recommend <code>goimports</code> because Go will not compile if imports are missing or extra. The <code>goimports</code> command saves this hassle when adding removing things during development.</p>
 
 <p>Whatever editor you use, I recommend installing and configuring <a
 href="https://godoc.org/golang.org/x/tools/cmd/goimports">goimports</a> to automatically run on save.</p>
@@ -136,7 +136,7 @@ href="https://godoc.org/golang.org/x/tools/cmd/goimports">goimports</a> to autom
 
 <p>If you are starting out and want to learn how to program and choose Go as your first language, check out <a href="http://www.golang-book.com/">Learn Programming in Go</a></p>
 
-<p>The official Go language site has a <a href="http://tour.golang.org/">Tour of Go</a> which is an interactive walk through, another good introduction to the language.</p>
+<p>The official Go language site has a <a href="http://tour.golang.org/">Tour of Go</a> that is an interactive walk through, another good introduction to the language.</p>
 
 <p>Getting started: <a href="hello.html">Hola Mundo!</a></p>
 
