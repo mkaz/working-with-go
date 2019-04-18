@@ -71,7 +71,11 @@
 
 <p>Use the <a href="https://golang.org/pkg/path/filepath/#Walk"><code>filepath.Walk</code></a> function to recursively walk down a directory.</p>
 
-<p>The <code>Walk</code> function accepts a path, and <a href="https://golang.org/pkg/path/filepath/#WalkFunc"><code>WalkFunc</code></a> as its parameters. The <code>WalkFunc</code> signature is <code>func(path string, info os.FileInfo, err error) error</code></p>
+<p>The <code>Walk</code> function accepts a path, and <a href="https://golang.org/pkg/path/filepath/#WalkFunc"><code>WalkFunc</code></a> as its parameters.</p>
+
+<p>The <code>WalkFunc</code> signature is <code>func(path string, info os.FileInfo, err error) error</code></p>
+
+<p>In the <code>WalkFunc</code> if you want to skip an entire directory, return <code>filepath.SkipDir</code> which is a special error variable defined in the library.</p>
 
 <pre><code class="language-go">package main
 
@@ -94,6 +98,9 @@ func Walker(fn string, fi os.FileInfo, err error) error {
 
 	if fi.IsDir() {
 		fmt.Println(&quot;Directory: &quot;, fn)
+		if fi.Name() == &quot;skipme&quot; {
+			return filepath.SkipDir
+		}
 	} else {
 		fmt.Println(&quot;File: &quot;, fn)
 	}
