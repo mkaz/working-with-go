@@ -24,7 +24,7 @@ Go is a compiled language, you first need to compile program and then run the co
 Once you have Go installed, you can build a program:
 
 ```
-$ go build hello.fo
+$ go build hello.go
 ```
 
 This will create the binary `hello`, you can then run:
@@ -34,7 +34,7 @@ $ ./hello
 >> Hola Mundo!
 ```
 
-This tutorial will use `$` as the command prompt, and `>>` as the output from the program.
+The lessons use `$` as the command prompt, and `>>` as the output from the program.
 
 Go includes a convenience function `run` that allows you to build and run in a single command, but note this does not produce a binary.
 
@@ -52,6 +52,7 @@ href="https://github.com/fatih/vim-go">vim-go</a> package which includes syntax 
 
 Go has two tools that can automatically format your source code to the Go coding standard, `gofmt` comes with the standard install and `goimports` which will format and auto adjust import statements as needed.
 
+<span class="tip">💡</span>
 I highly recommend `goimports` because Go will not compile if imports are missing or extra. The `goimports` command saves this hassle when adding removing things during development.
 
 Whatever editor you use, I recommend installing and configuring <a
@@ -80,6 +81,8 @@ If you are starting out and want to learn how to program and choose Go as your f
 
 The official Go language site has a [Tour of Go](http://tour.golang.org/) that is an interactive walk through, another good introduction to the language.
 
+<br/><br/>
+Get started.
 
-Getting started: [Hola Mundo!](hello.html)
+First program: [Hola Mundo!](hello.html)
 

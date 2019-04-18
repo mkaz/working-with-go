@@ -76,11 +76,11 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   line-height: normal;
   font-weight: 700;
-  margin: 0 0 0.33em 0;
+  margin: 2.0rem 0 0 0;
   color: #19CBFB;
 }
 
-h1 { font-size: 2.0rem; }
+h1 { font-size: 2.0rem; margin-top: 0 }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.625rem; }
 h4 { font-size: 1.25rem; }
@@ -340,22 +340,56 @@ header a:visited {
 main {
     display: flex;
     min-height: 800px;
+	max-width: 64rem;
 }
 
 aside {
 	max-width: 12rem;
 	width: 100%;
 	margin-top: 1.0rem;
-	/* border */
 	padding-right: 1.0rem;
-	border-right: 1px solid #999;
+	border-right: 1px solid #CCC;
 	margin-right: 1.0rem;
 }
 
 article {
-	max-width: 42rem;
 	width: 100%;
 	margin: 1.0rem 2.0rem;
+}
+
+article p {
+	max-width: 32rem;
+}
+
+.tip {
+	float: left;
+	margin-left: -2.5rem;
+	margin-top: 0.5rem;
+	font-size: 2.0rem;
+}
+
+.sidenote {
+	display: inline-block;
+	float: right;
+	clear: right;
+	margin: 0 -15rem 0 0;
+	font-size: 0.85rem;
+	vertical-align: baseline;
+	position: relative;
+
+	max-width: 11rem;
+    width: 100%;
+
+    code {
+        font-size: 0.85rem;
+    }
+ }
+
+@media (max-width: 64rem) {
+	.sidenote { display: none; }
+}
+
+@media all and (max-width: 960px) {
 }
 
 article footer nav {
@@ -383,6 +417,10 @@ footer p {
 
 	article {
 		margin: 1.0rem 0;
+	}
+
+	.tip {
+		display: none;
 	}
 }
 
