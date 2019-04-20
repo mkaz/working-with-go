@@ -54,10 +54,18 @@ sub, sup {
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
+figure, video,
 img {
   max-width: 100%;
   border: 0;
   -ms-interpolation-mode: bicubic;
+}
+
+figcaption {
+	color: #999;
+	text-align: center;
+	font-size: 0.875rem;
+	margin-bottom: 2.0rem;
 }
 
 svg:not(:root) { overflow: hidden; }
@@ -81,8 +89,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 2.0rem; margin-top: 0 }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.625rem; }
+h2 { font-size: 1.6875rem; }
+h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
 
 dl, menu, ol, ul { margin: 1em 0; }
@@ -314,6 +322,27 @@ textarea {
 }
 
 
+dl {
+    max-width: 32rem;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 1.5rem;
+}
+
+dt {
+    flex-basis: 25%;
+    padding: 0.5rem 1.0rem;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+dd {
+    flex-basis: 70%;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0.5rem 1.0rem;
+    border-bottom: 1px solid #E0E0E0;
+}
+
 header {
 	width: 100%;
 	padding-bottom: 1.0rem;
@@ -350,6 +379,7 @@ aside {
 	padding-right: 1.0rem;
 	border-right: 1px solid #CCC;
 	margin-right: 1.0rem;
+    line-height: 1.5rem;
 }
 
 article {
@@ -373,17 +403,17 @@ article p {
 	float: right;
 	clear: right;
 	margin: 0 -15rem 0 0;
-	font-size: 0.85rem;
+	font-size: 0.875rem;
 	vertical-align: baseline;
 	position: relative;
 
 	max-width: 11rem;
     width: 100%;
+}
 
-    code {
-        font-size: 0.85rem;
-    }
- }
+.sidenote code {
+    font-size: 0.875rem;
+}
 
 @media (max-width: 64rem) {
 	.sidenote { display: none; }
