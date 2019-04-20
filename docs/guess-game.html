@@ -85,55 +85,53 @@ fmt.Println(rand.Intn(100))
 
 <p>Here is the example guessing game</p>
 
-<p>```go
-package main</p>
+<pre><code class="language-go">package main
 
-<p>import (
-    &ldquo;fmt&rdquo;
-    &ldquo;math/rand&rdquo;
-    &ldquo;time&rdquo;
-)</p>
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
 
-<p>// automatically called on start
+// automatically called on start
 func init() {
-    // new random seed
-    rand.Seed(time.Now().UnixNano())
-}</p>
+	// new random seed
+	rand.Seed(time.Now().UnixNano())
+}
 
-<p>func main() {
-    // variable to store guess
-    var guess int</p>
+func main() {
+	// variable to store guess
+	var guess int
 
-<pre><code>// variable to store number of guesses
-var count int
+	// variable to store number of guesses
+	var count int
 
-// pick number to guess, add 1 since Intn gives [0,99]
-num := rand.Intn(100) + 1
+	// pick number to guess, add 1 since Intn gives [0,99]
+	num := rand.Intn(100) + 1
 
-fmt.Println(&quot;&gt;&gt; I'm thinking of a number between 1-100 &lt;&lt; &quot;)
+	fmt.Println(&quot;&gt;&gt; I'm thinking of a number between 1-100 &lt;&lt; &quot;)
 
-// guessing loop
-for {
-    // prompt user for guess
-    fmt.Print(&quot;Guess: &quot;)
-    _, err := fmt.Scanf(&quot;%d&quot;, &amp;guess)
-    if err == nil {
-        count += 1 // increment guess counter
-        if guess &gt; num {
-            fmt.Println(&quot; &gt;&gt; Too high &quot;)
-        } else if guess &lt; num {
-            fmt.Println(&quot; &gt;&gt; Too low &quot;)
-        } else {
-            fmt.Printf(&quot;Correct! It took you %d guesses!\n&quot;, count)
-            break
-        }
-    } else { // an error with input
-        fmt.Println(&quot;&gt;&gt; Please input a number&quot;)
-    }
+	// guessing loop
+	for {
+		// prompt user for guess
+		fmt.Print(&quot;Guess: &quot;)
+		_, err := fmt.Scanf(&quot;%d&quot;, &amp;guess)
+		if err == nil {
+			count += 1 // increment guess counter
+			if guess &gt; num {
+				fmt.Println(&quot; &gt;&gt; Too high &quot;)
+			} else if guess &lt; num {
+				fmt.Println(&quot; &gt;&gt; Too low &quot;)
+			} else {
+				fmt.Printf(&quot;Correct! It took you %d guesses!\n&quot;, count)
+				break
+			}
+		} else { // an error with input
+			fmt.Println(&quot;&gt;&gt; Please input a number&quot;)
+		}
+	}
 }
 </code></pre>
-
-<p>}</p>
 
 
 		<footer>
