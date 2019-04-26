@@ -1,7 +1,7 @@
 
 # Working with Go
 
-## View online at: https://mkaz.github.io/working-with-go
+## View online at: https://mkaz.blog/working-with-go/
 
 Working with Go is a set of examples for Go (golang) to get an experienced programmer familiar with the Go language. Go is often referred to as golang to help searches.
 
@@ -9,15 +9,18 @@ Working with Go is a set of examples for Go (golang) to get an experienced progr
 
 This repository was previously just a set of Go programs showing each of the examples, I found myself referencing it often, but as Go programs it was difficult to read the comments, examples, and not as easy to navigate.
 
-In April 2019, I switched it over to a static site published to https://mkaz.github.io/working-with-go
+In April 2019, I switched it over to my site at: https://mkaz.blog/working-with-go
 
 I saved the previous repository under the [classic branch](https://github.com/mkaz/working-with-go/tree/classic) so you can still browse.
 
+
 ## Contribute
 
-The site is generated using my [Hastie static site generator](https://github.com/mkaz/hastie), written in Go of course. The posts are stored in `_posts` directory, and the template in the `_layouts` directory. The generated site is published using Github Pages from the `/docs` directory.
+The site is generated from markdown to WordPress using my [wpsync tool](https://github.com/mkaz/wpsync), written in Go of course.
 
-Working with Go was started by Marcus Kazmierczak. Any additions, corrections, suggestions or any contributions are appreciated. You can submit a pull request or an issue for a bug or fix. Thanks to <a href="https://github.com/mkaz/working-with-go/graphs/contributors">all the contributors</a>!
+Working with Go was started by Marcus Kazmierczak. Any additions, corrections, suggestions or any contributions are appreciated. You can submit a pull request or an issue for a bug or fix.
+
+Thanks to <a href="https://github.com/mkaz/working-with-go/graphs/contributors">all the contributors</a>!
 
 
 ## Resources
