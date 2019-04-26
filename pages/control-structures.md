@@ -1,7 +1,8 @@
 ---
 title: Control Structures
-layout: post
-date: 2014-05-05
+parent: 1465
+template: page-tut.php
+order: 5
 ---
 
 # Control Structures

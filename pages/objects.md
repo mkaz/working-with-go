@@ -1,7 +1,8 @@
 ---
 title: Objects
-layout: post
-date: 2014-05-11
+parent: 1465
+template: page-tut.php
+order: 11
 ---
 
 # Object Oriented Programming

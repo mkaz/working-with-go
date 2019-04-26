@@ -1,7 +1,8 @@
 ---
 title: MySQL
-layout: post
-date: 2014-05-23
+parent: 1465
+template: page-tut.php
+order: 23
 ---
 
 # Working with MySQL Database

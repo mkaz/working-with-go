@@ -1,7 +1,8 @@
 ---
 title: Hola Mundo
-layout: post
-date: 2014-05-01
+parent: 1465
+template: page-tut.php
+order: 1
 ---
 
 # Hola Mundo in Go

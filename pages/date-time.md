@@ -1,7 +1,8 @@
 ---
 title: Date/Time
-layout: post
-date: 2014-05-14
+parent: 1465
+template: page-tut.php
+order: 14
 ---
 
 # Working with Date and Time

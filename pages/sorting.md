@@ -1,7 +1,8 @@
 ---
 title: Sorting
-layout: post
-date: 2014-05-15
+parent: 1465
+template: page-tut.php
+order: 15
 ---
 
 # Sorting Arrays and Maps

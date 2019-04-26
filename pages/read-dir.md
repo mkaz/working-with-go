@@ -1,7 +1,8 @@
 ---
 title: Read Directory
-layout: post
-date: 2014-05-10
+parent: 1465
+template: page-tut.php
+order: 10
 ---
 
 # Read Directory Recursively

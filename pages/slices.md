@@ -1,7 +1,8 @@
 ---
 title: Slices
-layout: post
-date: 2014-05-03
+parent: 1465
+template: page-tut.php
+order: 3
 ---
 
 # Working with Slices

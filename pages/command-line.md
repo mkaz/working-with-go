@@ -1,7 +1,8 @@
 ---
 title: Command-line
-layout: post
-date: 2014-05-13
+parent: 1465
+template: page-tut.php
+order:13
 ---
 
 # Command-line Args

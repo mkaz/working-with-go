@@ -1,7 +1,8 @@
 ---
 title: Files
-layout: post
-date: 2014-05-09
+parent: 1465
+template: page-tut.php
+order: 9
 ---
 
 # Working with Files

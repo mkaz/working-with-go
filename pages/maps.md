@@ -1,7 +1,8 @@
 ---
 title: Maps
-layout: post
-date: 2014-05-08
+parent: 1465
+template: page-tut.php
+order: 8
 ---
 
 # Working with Maps

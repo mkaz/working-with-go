@@ -1,7 +1,8 @@
 ---
 title: For Loops
-layout: post
-date: 2014-05-06
+parent: 1465
+template: page-tut.php
+order: 6
 ---
 
 Go uses `for` for all loops, there is no `while` or `do-while` loops.

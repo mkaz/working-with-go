@@ -1,7 +1,8 @@
 ---
 title: Strings
-layout: post
-date: 2014-05-02
+parent: 1465
+template: page-tut.php
+order: 2
 ---
 
 # Working with Strings

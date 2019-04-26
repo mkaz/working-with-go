@@ -1,7 +1,8 @@
 ---
 title: REST API
-layout: post
-date: 2014-05-20
+parent: 1465
+template: page-tut.php
+order: 20
 ---
 
 # REST API

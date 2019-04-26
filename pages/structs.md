@@ -1,7 +1,8 @@
 ---
 title: Structs
-layout: post
-date: 2014-05-07
+parent: 1465
+template: page-tut.php
+order: 7
 ---
 
 # Working with Structs

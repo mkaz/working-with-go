@@ -1,7 +1,8 @@
 ---
 title: Interfaces
-layout: post
-date: 2014-05-12
+parent: 1465
+template: page-tut.php
+order: 12
 ---
 
 # Interfaces

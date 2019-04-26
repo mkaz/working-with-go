@@ -1,7 +1,8 @@
 ---
 title: Web Server
-layout: post
-date: 2014-05-17
+parent: 1465
+template: page-tut.php
+order: 17
 ---
 
 # Web Server
