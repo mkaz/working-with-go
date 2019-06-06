@@ -12,7 +12,7 @@ The [`time`](http://golang.org/pkg/time/) standard library provides the methods 
 
 ## Now
 
-Create a date now, returns a `Time` type
+Create a date using `time.Now()`, returns a `Time` type
 
 ```go
 now := time.Now()
@@ -27,17 +27,17 @@ unix := time.Unix()
 
 ## Format Date
 
-Go uses a format by example method to format dates. This is a bit odd and you may never get used to it. There is a base date `Monday, January 2nd, 2006 at 15:04:05` and all formats  specified are based off examples using that date.
+Go uses a format-by-example method for formating dates. This is odd and you may never get used to it, I still haven't. There is a base date `Monday, January 2nd, 2006 at 15:04:05` and all formats specified are based off examples using that date.
 
 If you want a date in `YYYY-MM-DD` format, you would use `2006-01-02` as the format string.
 
-It is debatable what is easier to remember? The sample date or the `%b %c` formats other languages use. The other way to remember is `Month=1, Day=2, Hour=3, Minute=4, Sec=5, Year=6`
+It is debatable what is easier to remember? The sample date or the `%b %c` formats other languages use. A way to try to remember is `Month=1, Day=2, Hour=3, Minute=4, Sec=5, Year=6`
 
 ```go
 fmt.Println(now.Format("Mon, Jan 2, 2006 at 3:04pm"))
 ```
 
-You can grab any part of the date, see [`Time`](http://golang.org/pkg/time/#Time) documentation for all the available methods.
+Use a method to get any part of the date, see [`Time`](http://golang.org/pkg/time/#Time) documentation for list of available time methods.
 
 ```go
 fmt.Println("Year: ", now.Year())
@@ -46,7 +46,7 @@ fmt.Println("Month: ", now.Month())
 
 ## Built-in Formats
 
-There are a set of [built-in time constants](http://golang.org/pkg/time/#pkg-constants) available for date formatting.
+The time library contains a set of [built-in constants](http://golang.org/pkg/time/#pkg-constants) to assist with standard date formatting.
 
 ```
 const (
@@ -69,14 +69,14 @@ const (
 )
 ```
 
-An example using the formats
+An example using the constant formats
 
 ```go
 fmt.Println(now.Format(time.RFC850))
 fmt.Println(now.Format(time.RFC1123))
 ```
 
-## Setting Specific Date
+## Setting a Specific Date
 
 A time zone is required when specifying a date, you can build a time zone using the LoadLocation, or you could also use the `time.UTC` constant for UTC.
 

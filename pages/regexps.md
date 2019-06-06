@@ -67,7 +67,7 @@ fmt.Println("Result:", results)
 
 ## Case Insensitive
 
-The format for flags is a bit different than typical regular expressions. In golang the flag precedes the pattern, the syntax is not great, but here is a case insensitive flag
+The format for Go regular expression flags is different than typical. In Golang, the flag precedes the pattern, the syntax is, let's just say, not great. Here is an example using the case insensitive flag `i`
 
 ```go
 ptn := `(?i)^t.`
