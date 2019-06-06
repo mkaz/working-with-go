@@ -7,20 +7,20 @@ order: 2
 
 # Working with Strings
 
-A set of examples using Golang and creating and manipulating strings. The [`strings`](http://golang.org/pkg/strings/) standard library contains most of the functions you'll use to work with string.
+A set of examples working with strings in Golang. The `strings` standard library contains most of the functions you'll use to work with string. <div class="sidenote">See [strings package](http://golang.org/pkg/strings/) documentation</div>
 
-You can create and set a variable in one step using `:=` operator. Go will automatically determine the type by the assignment.
+Create and set a variable in one line using `:=` operator. Go will automatically determine the type by the assignment.
 
 ```go
 str := "This is an example string"
 ```
 
-In general, Go does not operate on standard values using an object oriented dot notation like JavaScript and Python. Instead, the function typically involve passing in the variable you are working on.
+In general, Go does not use a standard object oriented notation to operate on values. This differs from languages like JavaScript and Python. Instead in Go, you typically pass in the variable you are working on to the function. Here is an example using the `Contains` function from the `strings` package:
 
 ```go
 exists := strings.Contains(str, "example")
 ```
-
+Here is a full example program, that uses the `ToLower` function to convert a string to lowercase, and `Contains` to check if a string contains another.
 
 ```go
 package main
@@ -50,7 +50,7 @@ func main() {
 
 ## Strings as Array of Characters
 
-Strings in Go are an array of characters and can referenced as such.
+Strings in Go are an array of characters and can be referenced as such.
 
 ```go
 str := "abcdefghijklmnopqrstuvwxyz"
@@ -63,7 +63,7 @@ fmt.Println("First Five: " + str[:5])
 fmt.Println("From 13 on: " + str[13:])
 ```
 
-The Go Playground is a useful online environment you can run Go code in your browser. See the above example in the Go Playground here: [https://play.golang.org/p/DC7R7XKzZ5G](https://play.golang.org/p/DC7R7XKzZ5G)
+<span class="tip">💡</span> The Go Playground is a useful online environment that runs Go code in your browser. See the above example in the Go Playground here: [https://play.golang.org/p/DC7R7XKzZ5G](https://play.golang.org/p/DC7R7XKzZ5G). I often use the playground to test out a bit of logic I'm working on.
 
 ## Split Strings
 
@@ -83,9 +83,20 @@ fields := strings.Fields(sentence)
 fmt.Printf("%v \n", fields)
 ```
 
+## Join an Array of Strings
+
+In an OOP world, the `Join` function would be defined in an array package. In Go, however, it is part of the strings package, you pass in an array of strings and the separator you want to join them. 
+
+```go
+lines := []string{ "one", "two", "three" }
+str := string.Join(lines, ",")
+fmt.Println(str)
+>> one, two, three
+```
+
 ## String Replace
 
-You can replace a string using `strings.Replace`
+To replace a string with another use `strings.Replace`
 
 ```go
 str := "The blue whale loves blue fish."
@@ -93,7 +104,7 @@ newstr := strings.Replace(str, "blue", "red", 1)
 >> "The red whale loves blue fish."
 ```
 
-The `strings.Replace` function requires passing in how many replacements it should do. You can pass in `-1` to replace all.
+The `strings.Replace` function requires passing in how many replacements it should do. Pass in `-1` to replace all occurrences.
 
 ```go
 str := "The blue whale loves blue fish."
@@ -101,7 +112,7 @@ newstr := strings.Replace(str, "blue", "red", -1)
 >> "The red whale loves red fish."
 ```
 
-As of, Go v1.12, there is a new `strings.ReplaceAll` that does not have the fourth argument, it will replace all.
+Go version 1.12 introduced the `strings.ReplaceAll` function that does not have the fourth argument -- it, as it says, replaces all occurrences.
 
 
 ## Strings HasPrefix and HasSuffix
