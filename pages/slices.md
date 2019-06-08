@@ -13,13 +13,13 @@ The specification for slices are `[]T` where T is the type, for example `[]strin
 
 ## Initialize
 
-Initialize an empty slice
+Initialize an empty slice.
 
 ```go
 var empty []int
 ```
 
-Initialize a slice with values
+Initialize a slice with values.
 
 ```go
 alphas := []string{"abc", "def", "ghi", "jkl"}
@@ -27,7 +27,7 @@ alphas := []string{"abc", "def", "ghi", "jkl"}
 
 ## Append
 
-Slices can not be modified, a new copy needs to be made
+Slices can not be modified, a new copy needs to be made, it is common to copy to the same variable. 
 
 ```go
 var nums []int
@@ -37,16 +37,16 @@ fmt.Println(nums)
 // [203 302]
 ```
 
-You can append multiple values at once
+Append multiple values at once.
 
 ```go
 alphas := []string{"abc", "def", "ghi", "jkl"}
 alphas = append(alphas, "mno", "pqr", "stu")
 ```
 
-### Common Array Operations
+## Common Array Operations
 
-Get length of a slice
+Get length of a slice.
 
 ```go
 fmt.Println("Length: ", len(alphas))
@@ -66,7 +66,7 @@ fmt.Println(alpha2)
 ```
 
 
-### Exists
+## Element Exists in a Slice
 
 There is no built-in function to determine if an element exists in a slice. Here is an example function to check if a string exists in an array of strings.
 
@@ -93,6 +93,4 @@ func elemExists(s string, a []string) bool {
 	return false
 }
 ```
-
-
 

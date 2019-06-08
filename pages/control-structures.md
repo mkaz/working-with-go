@@ -12,7 +12,7 @@ Using If, Else, Switch and Conditionals in Go.
 
 ## If, Else
 
-Go is not picky, conditionals don't require parentheses
+Go is not picky, conditionals don't require parentheses.
 
 ```go
 if num > 3 {
@@ -20,7 +20,7 @@ if num > 3 {
 }
 ```
 
-Go is picky, `else` must be on the same line as closing `if` bracket
+Go is picky, `else` must be on the same line as closing `if` bracket.
 
 ```go
 if num == 1 {
@@ -34,7 +34,7 @@ if num == 1 {
 
 ## Switch Statement
 
-Using switch and case conditionals in Go. Note, Go will auto break from different cases, there is not a cascade issue.
+Using switch and case conditionals in Go. Note: Go auto breaks each case, this avoids the typical issue of cascading when forgetting a break statement.
 
 ```go
 switch {

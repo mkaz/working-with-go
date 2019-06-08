@@ -5,6 +5,8 @@ template: page-tut.php
 order: 6
 ---
 
+# Loops
+
 Go uses `for` for all loops, there is no `while` or `do-while` loops.
 
 ## For Loop

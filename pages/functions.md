@@ -7,7 +7,7 @@ order: 4
 
 # Functions
 
-Examples on how to use functions in go
+Examples on how to use functions in Go.
 
 ## Basic Function
 
@@ -65,7 +65,7 @@ func Divide2(x, y float64) (q, r float64) {
 
 ## Variadic Parameters
 
-Function that will take an arbitrary number of ints as arguments. Arguments can be use as a slice inside the function.
+A variadic function is a function that accepts an arbitrary number of arguments. Here is an example function accepting any number of ints. A slice is created out of the parameters passed in.
 
 ```go
 func Sum(x ...int) int {
