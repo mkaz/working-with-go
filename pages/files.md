@@ -70,3 +70,22 @@ if _, err = af.WriteString("Appending this text"); err != nil {
 
 The `defer` statement defers the execution until the surrounding function (or overall program) completes. You should always use `defer` for something that needs to be closed, or cleaned up.
 
+## Using Filepath
+
+Use the [filepath package](https://golang.org/pkg/path/filepath/) for working with cross-platform paths properly.
+For example, use `filepath.Join` for creating a path with directory.
+
+```go
+package main
+
+import (
+    "fmt"
+    "path/filepath"
+)
+
+func main() {
+    fmt.Println(filepath.Join("a", "b", "file.ext"))
+}
+```
+
+See filepath package documentation for additional function, including splitting paths, checking filename extension, base and more.
