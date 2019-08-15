@@ -37,16 +37,29 @@ if num == 1 {
 Using switch and case conditionals in Go. Note: Go auto breaks each case, this avoids the typical issue of cascading when forgetting a break statement.
 
 ```go
+switch num {
+	case 1:
+		fmt.Println("One")
+	case 2:
+		fmt.Println("Two")
+	default:
+		fmt.Println("Many")
+	}
+}
+```
+
+An alternative switch syntax allows you to check beyond equality:
+
+```go
 switch {
 	case num == 1:
 		fmt.Println("One")
 	case num == 2:
 		fmt.Println("Two")
-	case num > 2:
+    case num > 2:
 		fmt.Println("Many")
 	default:
-		fmt.Println("Thrown over boat")
+        fmt.Println("Less than 1")
 	}
 }
 ```
-
