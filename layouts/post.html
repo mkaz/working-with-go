@@ -6,7 +6,7 @@
 
   <title> {{ .Title }} </title>
 
-  <link rel="stylesheet" media="screen" href="{{ .Params.BaseUrl }}/css/style.css" >
+  <link rel="stylesheet" media="screen" href="/working-with-go/css/style.css" >
 </head>
 <body>
 
@@ -24,7 +24,7 @@
       <h2>Contents</h2>
       <ul>
         {{ range .Recent.Reverse }}
-          <li><a href="{{ .Params.BaseUrl }}/{{ .Url }}">{{ .Title }}</a></li>
+          <li><a href="/working-with-go/{{ .Url }}">{{ .Title }}</a></li>
         {{ end }}
       </ul>
     </aside>
@@ -41,8 +41,8 @@
     <a href="https://github.com/mkaz/hastie">Powered by Hastie</a>
 </footer>
 
-<script src="{{ .Params.BaseUrl }}/js/asciinema/asciinema-player.js"></script>
-<script src="{{ .Params.BaseUrl }}/js/prism.js"></script>
+<script src="/working-with-go/js/asciinema/asciinema-player.js"></script>
+<script src="/working-with-go/js/prism.js"></script>
 
 </body>
 </html>
