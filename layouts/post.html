@@ -24,7 +24,7 @@
       <h2>Contents</h2>
       <ul>
         {{ range .Recent.Reverse }}
-          <li><a href="/working-with-go/{{ .Url }}">{{ .Title }}</a></li>
+          <li><a href="/working-with-go{{ .Url }}">{{ .Title }}</a></li>
         {{ end }}
       </ul>
     </aside>
@@ -39,9 +39,10 @@
     An <a href="https://mkaz.blog/">mkaz</a> joint
     <span class="sep"> | </span>
     <a href="https://github.com/mkaz/hastie">Powered by Hastie</a>
+    <span class="sep"> | </span>
+    View <a href="https://github.com/mkaz/working-with-go/blob/master/{{ .SourceFile }}">source for this page on Github</a>
 </footer>
 
-<script src="/working-with-go/js/asciinema/asciinema-player.js"></script>
 <script src="/working-with-go/js/prism.js"></script>
 
 </body>
