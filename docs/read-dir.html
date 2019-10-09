@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Directories </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Directories</h1>
+
+<h2>Read Directory Recursively</h2>
+
+<p>Use the <a href="https://golang.org/pkg/path/filepath/#Walk"><code>filepath.Walk</code></a> function to recursively walk down a directory.</p>
+
+<p>The <code>Walk</code> function accepts a path, and <a href="https://golang.org/pkg/path/filepath/#WalkFunc"><code>WalkFunc</code></a> as its parameters.</p>
+
+<p>The <code>WalkFunc</code> signature is <code>func(path string, info os.FileInfo, err error) error</code>, below is an example using an anonymous function with that signature.</p>
+
+<p>In the <code>WalkFunc</code> if you want to skip an entire directory, return <code>filepath.SkipDir</code> which is a special error variable defined in the library.</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+	&quot;path/filepath&quot;
+)
+
+func main() {
+	path := &quot;./dir&quot;
+
+	filepath.Walk(path, func(fn string, fi os.FileInfo, err error) error {
+        if err != nil {
+            fmt.Println(&quot;Walker Error: &quot;, err)
+            return err
+        }
+
+        if fi.IsDir() {
+            fmt.Println(&quot;Directory: &quot;, fn)
+            if fi.Name() == &quot;skipme&quot; {
+                return filepath.SkipDir
+            }
+        } else {
+            fmt.Println(&quot;File: &quot;, fn)
+        }
+        return nil
+    })
+}
+</code></pre>
+
+<h2>Create Directory if not exists</h2>
+
+<p>Check if directory exists, create directory if it does not.</p>
+
+<pre><code class="language-go">    pathdir := filepath.Join(path, dir)
+    if _, err := os.Stat(pathdir); os.IsNotExist(err) {
+        mdErr := os.Mkdir(dirpath, 0755)
+        if mdErr != nil {
+            fmt.Println(&quot;Error making directory&quot;, mdErr)
+        }
+    }
+</code></pre>
+
+<h2>Get User Home Directory</h2>
+
+<p>A platform independent way to get the user&rsquo;s home directory.</p>
+
+<pre><code class="language-go">import &quot;os/user&quot;
+
+usr, err := user.Current()
+fmt.Println(&quot;User Home Directory:&quot;, usr.HomeDir)
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

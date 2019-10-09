@@ -1,7 +1,6 @@
 ---
 title: Slices
-parent: 1465
-template: page-tut.php
+date: 2014-06-03
 order: 3
 ---
 

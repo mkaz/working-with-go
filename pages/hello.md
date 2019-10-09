@@ -1,7 +1,6 @@
 ---
 title: Hola Mundo
-parent: 1465
-template: page-tut.php
+date: 2014-06-01
 order: 1
 ---
 

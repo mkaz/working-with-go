@@ -1,7 +1,6 @@
 ---
 title: Functions
-parent: 1465
-template: page-tut.php
+date: 2014-06-04
 order: 4
 ---
 

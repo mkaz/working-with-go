@@ -1,7 +1,6 @@
 ---
 title: Web Server
-parent: 1465
-template: page-tut.php
+date: 2014-06-17
 order: 17
 ---
 

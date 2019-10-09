@@ -1,7 +1,6 @@
 ---
 title: MySQL
-parent: 1465
-template: page-tut.php
+date: 2014-06-23
 order: 23
 ---
 

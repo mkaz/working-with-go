@@ -1,7 +1,6 @@
 ---
 title: Directories
-parent: 1465
-template: page-tut.php
+date: 2014-06-10
 order: 10
 ---
 

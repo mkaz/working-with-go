@@ -1,7 +1,6 @@
 ---
 title: Regexp
-parent: 1465
-template: page-tut.php
+date: 2014-06-21
 order: 21
 ---
 

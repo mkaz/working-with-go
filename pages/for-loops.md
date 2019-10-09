@@ -1,7 +1,6 @@
 ---
 title: For Loops
-parent: 1465
-template: page-tut.php
+date: 2014-06-06
 order: 6
 ---
 

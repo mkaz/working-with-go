@@ -1,7 +1,6 @@
 ---
 title: Command-line
-parent: 1465
-template: page-tut.php
+date: 2014-06-13
 order:13
 ---
 
@@ -96,7 +95,7 @@ func main() {
 
 Run with different parameters
 
-```
+```shell
 $ go run command-line.go
 >> No args passed in
 >> String: default value

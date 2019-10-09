@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> {{ .Title }} </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        {{ range .Recent.Reverse }}
+          <li><a href="{{ .Url }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      {{ .Content }}
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

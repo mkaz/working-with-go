@@ -1,7 +1,6 @@
 ---
 title: Sorting
-parent: 1465
-template: page-tut.php
+date: 2014-06-15
 order: 15
 ---
 

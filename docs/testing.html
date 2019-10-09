@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Testing </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Testing</h1>
+
+<p>The <a href="https://golang.org/pkg/testing/">Go testing package</a> supports creating unit test in go. Your test code is written in plain go, there is not a new assert language or syntax to learn. You write go code, and then Fail or Error out to signal the test did not pass.</p>
+
+<p>To write a new test created a test file, ending in <code>_test.go</code> which includes functions with the following signature: <code>func TestXxx(*testing.T)</code></p>
+
+<p>Note: The function name must start with <code>Test</code> and include a capitalized second part which is used to identify the test routing.</p>
+
+<p>For example, if you want to test an <code>Add</code> function in your project:</p>
+
+<p>Create <code>add_test.go</code>:</p>
+
+<pre><code class="language-go">package main
+
+import &quot;testing&quot;
+
+func TestAdd(t *testing.T) {
+    sum := Add(1, 1)
+    if sum != 2 {
+       t.Errorf(&quot;Expected %d =&gt; Received %d&quot;, 2, sum)
+    }
+}
+</code></pre>
+
+<p>Run test using: <code>go test</code></p>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

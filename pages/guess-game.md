@@ -1,7 +1,6 @@
 ---
 title: Guessing Game
-parent: 1465
-template: page-tut.php
+date: 2014-06-18
 order: 18
 ---
 

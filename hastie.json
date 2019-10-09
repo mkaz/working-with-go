@@ -1,0 +1,5 @@
+{
+    "SourceDir"  : "pages",
+    "LayoutDir"  : "layouts",
+    "PublishDir" : "docs"
+}
