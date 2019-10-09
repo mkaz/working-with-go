@@ -6,7 +6,7 @@
 
   <title> {{ .Title }} </title>
 
-  <link rel="stylesheet" media="screen" href="/css/style.css" >
+  <link rel="stylesheet" media="screen" href="{{ .Params.BaseUrl }}/css/style.css" >
 </head>
 <body>
 
@@ -24,7 +24,7 @@
       <h2>Contents</h2>
       <ul>
         {{ range .Recent.Reverse }}
-          <li><a href="{{ .Url }}">{{ .Title }}</a></li>
+          <li><a href="{{ .Params.BaseUrl }}/{{ .Url }}">{{ .Title }}</a></li>
         {{ end }}
       </ul>
     </aside>
@@ -38,11 +38,11 @@
 <footer class="site-footer" role="contentinfo">
     An <a href="https://mkaz.blog/">mkaz</a> joint
     <span class="sep"> | </span>
-    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+    <a href="https://github.com/mkaz/hastie">Powered by Hastie</a>
 </footer>
 
-<script src="/js/asciinema/asciinema-player.js"></script>
-<script src="/js/prism.js"></script>
+<script src="{{ .Params.BaseUrl }}/js/asciinema/asciinema-player.js"></script>
+<script src="{{ .Params.BaseUrl }}/js/prism.js"></script>
 
 </body>
 </html>
