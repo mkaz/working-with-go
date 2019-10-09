@@ -273,6 +273,10 @@ pre[class*="language-"] {
   border-radius: 5px;
 }
 
+code[class*="language"] {
+  color: #c0c5ce;
+}
+
 pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
