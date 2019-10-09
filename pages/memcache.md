@@ -54,7 +54,11 @@ func main() {
 	spot := Dog{Name: "Spot", Color: "brown"}
 
 	// create memcache item to store
-	setItem := memcache.Item{Key: "dog", Value: EncodeData(spot), Expiration: 300}
+	setItem := memcache.Item{
+		Key: "dog",
+		Value: EncodeData(spot),
+		Expiration: 300
+	}
 
 	err = mc.Set(&setItem)
 	if err != nil {

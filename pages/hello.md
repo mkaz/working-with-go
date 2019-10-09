@@ -48,9 +48,7 @@ func main() {
 
 To run the program in your terminal, save to a file `hello.go` and run using `go run`:
 
-```
+```shell
 $ go run hello.go
 Hola Mundo!
 ```
-
-

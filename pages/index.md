@@ -23,13 +23,13 @@ Go is a compiled language, you first need to compile program and then run the co
 
 Once you have Go installed, you can build a program:
 
-```
+```shell
 $ go build hello.go
 ```
 
 This will create the binary `hello`, you can then run:
 
-```
+```shell
 $ ./hello
 >> Hola Mundo!
 ```
@@ -38,7 +38,7 @@ These lessons use `$` as the command prompt, and `&gt;&gt;` as the output from t
 
 Go includes a convenience function `run` that allows you to build and run in a single command. Note: this does not produce a binary.
 
-```
+```shell
 $ go run hello.go
 >> Hola Mundo!
 ```
@@ -63,13 +63,13 @@ Whatever editor you use, I recommend installing and configuring <a href="https:/
 
 Install goimports:
 
-```
+```shell
 $ go get golang.org/x/tools/cmd/goimports
 ```
 
 For vim, you can setup to auto run `goimports` on save using vim-go:
 
-```
+```vim
 let g:go_fmt_command = "goimports"
 ```
 
