@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Hola Mundo </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Hola Mundo in Go</h1>
+
+<p>Here is your first go program.</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hola Mundo!&quot;)
+}
+</code></pre>
+
+<p>All programs must be part of a package, you use <code>main</code> as the package for executable programs.</p>
+
+<p>You must import all packages used, including the standard library packages. In this example, the standard library <a href="https://golang.org/pkg/fmt/"><code>fmt</code></a> is used for formatted I/O.</p>
+
+<p>The standard library is your best friend in Go, it is extensive, often you will not need any third-party dependencies and can rely on just features in the standard library. You can browse all available standard library packages at: <a href="http://golang.org/pkg/">http://golang.org/pkg/</a>.</p>
+
+<p>The main package requires a <code>main()</code> function, this is called when the program is run.</p>
+
+<p>Go will run <code>init()</code> function before <code>main()</code>, if it exists.</p>
+
+<p>Here is an expanded Hello World program that uses a global variable <code>phrase</code> defined as a string. <span class="sidenote">All variables have types.</span> The go compiler will automatically detect the type if possible.</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+var phrase string
+
+func init() {
+	phrase = &quot;Hola Mundo!&quot;
+}
+
+func main() {
+	fmt.Println(phrase)
+}
+</code></pre>
+
+<p>To run the program in your terminal, save to a file <code>hello.go</code> and run using <code>go run</code>:</p>
+
+<pre><code>$ go run hello.go
+Hola Mundo!
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

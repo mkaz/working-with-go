@@ -1,19 +1,164 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="1;url=https://mkaz.blog/working-with-go/" />
-        <title> Working with Go </title>
-    </head>
-    <body>
-        <h2> Working with Go </h2>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <p> Page redirected to:
-            <a href="https://mkaz.blog/working-with-go/">https://mkaz.blog/working-with-go/</a>
-        </p>
+  <title> Working with Go </title>
 
-        <script>
-                window.location.href = "https://mkaz.blog/working-with-go/";
-        </script>
-    </body>
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <p>Working with Go is a set of examples in Go (golang) to get an experienced programmer familiar with Go. The Go language is often referred to as golang to help searches.</p>
+
+<p>Initially started as code and inline comments, but I found it more difficult to read and reference so migrated the content to this online tutorial.</p>
+
+<h2>Install Go</h2>
+
+<p>Go is distributed as a binary on the major platforms, Linux, FreeBSD, Mac OS X and Windows. It is available for both 32-bit and 64-bit architectures. See the official <a href="http://golang.org/doc/install">Getting Started with Go</a> page for downloads and more instructions.</p>
+
+<p>Go is available in most Linux package environments:</p>
+
+<p>Ubuntu install: <code>apt-get install golang</code></p>
+
+<p>Arch/Manjaro install: <code>pacman -S go</code></p>
+
+<h2>Running Go</h2>
+
+<p>Go is a compiled language, you first need to compile program and then run the compiled binary. Go creates a single binary file that includes all necessary dependencies. This is convenient, once a binary is built you can copy and run to any similar system.</p>
+
+<p>Once you have Go installed, you can build a program:</p>
+
+<pre><code>$ go build hello.go
+</code></pre>
+
+<p>This will create the binary <code>hello</code>, you can then run:</p>
+
+<pre><code>$ ./hello
+&gt;&gt; Hola Mundo!
+</code></pre>
+
+<p>These lessons use <code>$</code> as the command prompt, and <code>&amp;gt;&amp;gt;</code> as the output from the program.</p>
+
+<p>Go includes a convenience function <code>run</code> that allows you to build and run in a single command. Note: this does not produce a binary.</p>
+
+<pre><code>$ go run hello.go
+&gt;&gt; Hola Mundo!
+</code></pre>
+
+<h2>Development Environment</h2>
+
+<p>Go is purposely light-weight and simple, making it quite flexible for just about any set of developer tools. A full blown IDE, such as Eclipse, is rarely used. Most developers opt for their favorite text editor and the terminal to run. This is how I develop on Linux.</p>
+
+<p>My primary editor is <strong>Vim</strong>. I recommend using the <a href="https://github.com/fatih/vim-go">vim-go</a> package which includes syntax support, and some convenience functions.</p>
+
+<p>Go has two tools that can automatically format your source code to the Go coding standard, <code>gofmt</code> comes with the standard install and <code>goimports</code> which will format and auto adjust import statements as needed.</p>
+
+<p>I highly recommend <code>goimports</code> because Go will not compile if imports are missing or extra. The <code>goimports</code> command saves this hassle when adding removing things during development.</p>
+
+<p>Whatever editor you use, I recommend installing and configuring <a href="https://godoc.org/golang.org/x/tools/cmd/goimports">goimports</a> to automatically run on save.</p>
+
+<p>Install goimports:</p>
+
+<pre><code>$ go get golang.org/x/tools/cmd/goimports
+</code></pre>
+
+<p>For vim, you can setup to auto run <code>goimports</code> on save using vim-go:</p>
+
+<pre><code>let g:go_fmt_command = &quot;goimports&quot;
+</code></pre>
+
+<h2>Contribute</h2>
+
+<p>Working with Go source files are hosted at <a href="https://github.com/mkaz/working-with-go">https://github.com/mkaz/working-with-go</a></p>
+
+<p>Additions, corrections and any contributions are encouraged, please submit a pull request with your change or an issue for a bug or fix. Thanks to <a href="https://github.com/mkaz/working-with-go/graphs/contributors">all the contributors</a>!</p>
+
+<h2>Resources</h2>
+
+<p>This set of examples assumes a certain level of programming experience and is intended for someone learning the Go language and not someone new to programming altogether.</p>
+
+<p>If you are starting out and want to learn how to program and choose Go as your first language, check out <a href="http://www.golang-book.com/">Learn Programming in Go</a></p>
+
+<p>The official Go language site has a <a href="http://tour.golang.org/">Tour of Go</a> that is an interactive walk through, another good introduction to the language.</p>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
 </html>

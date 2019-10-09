@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> REST API </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>REST API</h1>
+
+<p>Use the <a href="https://golang.org/pkg/net/http/"><code>net/http</code></a> standard library to create external http calls. You can combine this with the <a href="json.html">parsing of JSON</a> to work with external APIs.</p>
+
+<p>The following example pulls in data from the Reddit API to get latest posts from golang sub. The key to understanding JSON decoding is understanding the data structure you receive the data. Once data structs are mapped, it becomes relatively straight forward</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;encoding/json&quot;
+	&quot;io/ioutil&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+)
+
+// create data structures to hold JSON data
+// this needs to match the fields in the JSON feed
+// see sample data fetch at bottom of this file
+
+// create an individual entry data structure
+// this does not need to hold every field, just the ones we want
+type Entry struct {
+	Title     string
+	Author    string
+	URL       string
+	Permalink string
+}
+
+// the feed is the full JSON data structure
+// this sets up the array of Entry types (defined above)
+type Feed struct {
+	Data struct {
+		Children []struct {
+			Data Entry
+		}
+	}
+}
+
+func main() {
+	// url of REST endpoint we are grabbing data from
+	url := &quot;https://www.reddit.com/r/golang/new.json&quot;
+
+	// fetch url
+	resp, err := http.Get(url)
+	if err != nil {
+		log.Fatalln(&quot;Error fetching:&quot;, err)
+	}
+	// defer response close
+	defer resp.Body.Close()
+
+	// confirm we received an OK status
+	if resp.StatusCode != http.StatusOK {
+		log.Fatalln(&quot;Error Status not OK:&quot;, resp.StatusCode)
+	}
+
+	// read the entire body of the response
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalln(&quot;Error reading body:&quot;, err)
+	}
+
+	// create an empty instance of Feed struct
+	// this is what gets filled in when unmarshaling JSON
+	var entries Feed
+	if err := json.Unmarshal(body, &amp;entries); err != nil {
+		log.Fatalln(&quot;Error decoing JSON&quot;, err)
+	}
+
+	// loop through the children and create entry objects
+	for _, ed := range entries.Data.Children {
+		entry := ed.Data
+		log.Println(&quot;&gt;&gt;&gt;&quot;)
+		log.Println(&quot;Title   :&quot;, entry.Title)
+		log.Println(&quot;Author  :&quot;, entry.Author)
+		log.Println(&quot;URL     :&quot;, entry.URL)
+		log.Printf(&quot;Comments: http://reddit.com%s \n&quot;, entry.Permalink)
+	}
+}
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> JSON </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Working with JSON</h1>
+
+<p>Use the <a href="http://golang.org/pkg/encoding/json/"><code>encoding/json</code></a> standard library for encoding to and decoding from JSON.</p>
+
+<h2>Encoding to JSON</h2>
+
+<p>Encoding a Go struct to JSON format uses the <a href="https://golang.org/pkg/encoding/json/#Marshal"><code>json.Marshal</code></a> method, this returns a <code>[]byte</code> of the struct.</p>
+
+<pre><code class="language-go">// Create a struct to match the format of JSON
+type Person struct {
+	Name string
+	City string
+}
+
+p := Person{ Name: &quot;Marcus&quot;, City: &quot;San Francisco&quot; }
+
+json, err := json.Marshal(p)
+if err != nil {
+	fmt.Println(&quot;JSON Encoding Error&quot;, err)
+}
+
+fmt.Println(string(json))
+</code></pre>
+
+<h2>Decode from JSON</h2>
+
+<p>To decode a JSON string to a Go struct, use the <a href="https://golang.org/pkg/encoding/json/#Unmarshal"><code>json.Unmarshal</code></a> method. Unmarshal accepts the <code>[]byte</code> of the JSON string to decode, and a pointer to the struct that matches the data structure.</p>
+
+<pre><code class="language-go">json_str := `{ &quot;Name&quot;: &quot;Marcus&quot;, &quot;City&quot;: &quot;San Jose&quot;}`
+var p Person
+
+if err := json.Unmarshal([]byte(json_str), &amp;p); err != nil {
+	fmt.Println(&quot;Error parsing JSON: &quot;, err)
+}
+
+// output result
+fmt.Printf(&quot;Name: %v, City: %v\n&quot;, person.Name, person.City)
+</code></pre>
+
+<h3>Partial Data</h3>
+
+<p>If a variable is already defined with values, the Unmarshaling will &ldquo;fill in&rdquo; the variable with the additional values from JSON.</p>
+
+<h3>Read JSON from a File</h3>
+
+<p>Since <code>Unmarshal</code> expects a <code>[]byte</code> to be read, reading from a file is straight-forward.</p>
+
+<pre><code class="language-go">var people []Person
+
+file, err := ioutil.ReadFile(&quot;names.json&quot;)
+if err != nil {
+	fmt.Println(&quot;Error reading file&quot;)
+}
+
+// the names.json file has an array of person objects, so read into people
+if err := json.Unmarshal(file, &amp;people); err != nil {
+	fmt.Println(&quot;Error parsing JSON&quot;, err)
+}
+
+// output result
+fmt.Println(people)
+</code></pre>
+
+<h2>Mapping Struct and JSON Field</h2>
+
+<p>The JSON field names may not always match the struct names. Go will automatically manage uppercase and lowercase fields, but if they are completely different you can use struct field tags to label.</p>
+
+<pre><code class="language-go">type Person {
+	Name string `json:&quot;username&quot;`
+	City string `json:&quot;municipality&quot;`
+}
+</code></pre>
+
+<p>By defining the struct with the field tags, the Marshal and Unmarshaling will take the Go struct and write them to those JSON fields.</p>
+
+<pre><code class="language-go">p := Person{ Name: &quot;Marcus&quot;, City: &quot;San Francisco&quot; }
+json, _ := json.Marshal(p)
+fmt.Println(string(json))
+
+&gt;&gt; { &quot;username&quot;: &quot;Marcus&quot;, &quot;municipality&quot;: &quot;San Francisco&quot; }
+</code></pre>
+
+<h3>Ignore Field</h3>
+
+<p>You can ignore a field from being encoded or decoded to JSON, using <code>-</code> definition.</p>
+
+<pre><code class="language-go">type Person {
+	Name string
+	City string
+	Phone string `json:&quot;-&quot;`
+}
+</code></pre>
+
+<p>The <code>Phone</code> field will be omitted from JSON operations.</p>
+
+<h3>Omit Empty Fields</h3>
+
+<p>Set a field to be ignored when empty, use <code>omitempty</code> so JSON encoding will not include the field.</p>
+
+<pre><code class="language-go">type Person {
+	Name string
+	City string
+	Phone string `json:&quot;,omitempty&quot;`
+}
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Files </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Working with Files</h1>
+
+<h2>Reading File</h2>
+
+<p>You can read a complete file in using <a href="https://golang.org/pkg/io/ioutil/#ReadFile"><code>ioutil.ReadFile</code></a>. The function returns two variables, the first the content of the file. The second variable is the error if one occurred. If no error, than <code>err</code> will be <code>nil</code></p>
+
+<pre><code class="language-go">filename := &quot;./extras/rabbits.txt&quot;
+
+content, err := ioutil.ReadFile(filename)
+if err != nil {
+	log.Fatalln(&quot;Error reading file&quot;, filename)
+}
+</code></pre>
+
+<p>The content is returned as a <code>[]byte</code> and not a string. You need to cast to a string to use as such, for example to display. Use <code>string()</code> to cast a <code>[]byte</code> to <code>string</code> type.</p>
+
+<pre><code class="language-go">fmt.Println(string(content))
+</code></pre>
+
+<h2>Check if File Exists</h2>
+
+<p>One of the above errors can be if the file does not exist. You can use <a href="https://golang.org/pkg/os/#Stat"><code>os.Stat</code></a> to check explicitly if file exists without trying to open.</p>
+
+<pre><code class="language-go">if _, err := os.Stat(&quot;junk.foo&quot;); os.IsNotExist(err) {
+	fmt.Println(&quot;&gt;&gt;&gt;&quot;)
+	fmt.Println(&quot;File: junk.foo does not exist&quot;)
+}
+</code></pre>
+
+<h2>Write to a new File</h2>
+
+<p>Use <a href="https://golang.org/pkg/io/ioutil/#WriteFile"><code>ioutil.WriteFile</code></a> to write a file out. The function takes three variables, the filename, the content (as a <code>[]byte</code>) and the file system mode.</p>
+
+<pre><code class="language-go">outfile := &quot;output.txt&quot;
+err = ioutil.WriteFile(outfile, content, 0644)
+if err != nil {
+	fmt.Println(&quot;Error writing file: &quot;, err)
+} else {
+	fmt.Println(&quot;&gt;&gt;&gt;&quot;)
+	fmt.Println(&quot;Created: &quot;, outfile)
+}
+</code></pre>
+
+<h2>Append to an existing File</h2>
+
+<p>You can write out to an existing file appending the content using the following.</p>
+
+<pre><code class="language-go">af, err := os.OpenFile(outfile, os.O_APPEND|os.O_WRONLY, 0644)
+if err != nil {
+	fmt.Println(&quot;Error appending to file:&quot;, err)
+}
+defer af.Close()
+if _, err = af.WriteString(&quot;Appending this text&quot;); err != nil {
+	fmt.Println(&quot;Error writing to file:&quot;, err)
+}
+</code></pre>
+
+<p>The <code>defer</code> statement defers the execution until the surrounding function (or overall program) completes. You should always use <code>defer</code> for something that needs to be closed, or cleaned up.</p>
+
+<h2>Using Filepath</h2>
+
+<p>Use the <a href="https://golang.org/pkg/path/filepath/">filepath package</a> for working with cross-platform paths properly.
+For example, use <code>filepath.Join</code> for creating a path with directory.</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;path/filepath&quot;
+)
+
+func main() {
+    fmt.Println(filepath.Join(&quot;a&quot;, &quot;b&quot;, &quot;file.ext&quot;))
+}
+</code></pre>
+
+<p>See filepath package documentation for additional function, including splitting paths, checking filename extension, base and more.</p>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

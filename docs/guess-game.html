@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Guessing Game </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Guessing Game</h1>
+
+<p>An example of the guessing game picking a number between 1-100.</p>
+
+<h2>Random umber</h2>
+
+<p>The <a href="https://golang.org/pkg/math/rand/"><code>math/rand</code></a> standard library is used to generate the random number.</p>
+
+<p>Note, you must seed the generator, for random this is easiest done using <code>time.Now().UnixNano()</code>. You can also seed the generator with a known value, such as a user id to get a deterministic random number.</p>
+
+<pre><code class="language-go">rand.Seed(time.Now().UnixNano())
+fmt.Println(rand.Intn(100))
+</code></pre>
+
+<h2>Example Game</h2>
+
+<p>Here is the example guessing game</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+// automatically called on start
+func init() {
+	// new random seed
+	rand.Seed(time.Now().UnixNano())
+}
+
+func main() {
+	// variable to store guess
+	var guess int
+
+	// variable to store number of guesses
+	var count int
+
+	// pick number to guess, add 1 since Intn gives [0,99]
+	num := rand.Intn(100) + 1
+
+	fmt.Println(&quot;&gt;&gt; I'm thinking of a number between 1-100 &lt;&lt; &quot;)
+
+	// guessing loop
+	for {
+		// prompt user for guess
+		fmt.Print(&quot;Guess: &quot;)
+		_, err := fmt.Scanf(&quot;%d&quot;, &amp;guess)
+		if err == nil {
+			count += 1 // increment guess counter
+			if guess &gt; num {
+				fmt.Println(&quot; &gt;&gt; Too high &quot;)
+			} else if guess &lt; num {
+				fmt.Println(&quot; &gt;&gt; Too low &quot;)
+			} else {
+				fmt.Printf(&quot;Correct! It took you %d guesses!\n&quot;, count)
+				break
+			}
+		} else { // an error with input
+			fmt.Println(&quot;&gt;&gt; Please input a number&quot;)
+		}
+	}
+}
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Regexp </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Regular Expressions</h1>
+
+<p>Use the <a href="http://golang.org/pkg/regexp/"><code>regexp</code></a> standard library to work with regular expressions.</p>
+
+<h2>Basic Regexp</h2>
+
+<p>Create regular expression pattern to match 1 or more numbers</p>
+
+<pre><code class="language-go">pattern := &quot;[0-9]+&quot;
+
+re, err := regexp.Compile(pattern)
+if err != nil {
+	fmt.Println(&quot;Error compiling regex&quot;, err)
+}
+</code></pre>
+
+<h3>Test if Pattern Matches</h3>
+
+<p>Use <code>MatchString</code> to test if pattern matches</p>
+
+<pre><code class="language-go">str := &quot;The 12 monkeys ate 48 bananas&quot;
+if re.MatchString(str) {
+	fmt.Println(&quot;Yes, matched a number&quot;)
+} else {
+	fmt.Println(&quot;No, no match&quot;)
+}
+</code></pre>
+
+<h3>Return Match</h3>
+
+<p>Use <code>FindString</code> to return match</p>
+
+<pre><code class="language-go">result := re.FindString(str)
+fmt.Println(&quot;Number matched:&quot;, result)
+</code></pre>
+
+<h3>Return Multiple Matches</h3>
+
+<p>Use <code>FindAllString</code> to return multiple matches, specify <code>-1</code> to return all.</p>
+
+<pre><code class="language-go">results := re.FindAllString(str, 2)
+for i, v := range results {
+	fmt.Printf(&quot;Match %d: %s\n&quot;, i, v)
+}
+</code></pre>
+
+<h3>Replace Match</h3>
+
+<p>Use <code>ReplaceAllString</code> to replace matches</p>
+
+<pre><code class="language-go">results := re.ReplaceAllString(str, &quot;xx&quot;)
+fmt.Println(&quot;Result:&quot;, results)
+</code></pre>
+
+<h2>Case Insensitive</h2>
+
+<p>The format for Go regular expression flags is different than typical. In Golang, the flag precedes the pattern, the syntax is, let&rsquo;s just say, not great. Here is an example using the case insensitive flag <code>i</code></p>
+
+<pre><code class="language-go">ptn := `(?i)^t.`
+str := &quot;To be or not to be&quot;
+
+re, err := regexp.Compile(ptn)
+if err != nil {
+	fmt.Println(&quot;Error compiling regex&quot;, err)
+}
+
+// match string
+result := re.FindString(str)
+fmt.Println(result)
+</code></pre>
+
+<h2>Submatches</h2>
+
+<p>Submatches are what Go calls the matches that are grabbed by <code>(.*)</code> inside of a regular expression.</p>
+
+<pre><code class="language-go">str1 := &quot;Hello @world@ Match&quot;
+sub_re, _ := regexp.Compile(&quot;@(.*)@&quot;)
+
+m := sub_re.FindStringSubmatch(str1)
+// FindStringSubmatch returns [@world@ world]
+// so to just get the submatch you would use
+if len(m) &gt; 1 {
+	fmt.Println(m[1]) // submatch
+}
+</code></pre>
+
+<h3>Escaping Special Characters</h3>
+
+<p>If you wanted to match brackets or other special characters and try to just escape them like so <code>\[(.*)\]</code> you will get an error for unknown escape sequence <code>[</code></p>
+
+<p>You need to double up the slashes or a nicer solution is to use string literals and wrap in ticks instead of quotes</p>
+
+<pre><code class="language-go">str2 := &quot;A [word] here and [there]&quot;
+esc_pattern := `\[(.*?)\]`
+esc_re, _ := regexp.Compile(esc_pattern)
+
+// this will only find the first
+fmt.Println(esc_re.FindStringSubmatch(str2))
+
+// use FindAll with second parameter for # of matches -1 = all
+fmt.Println(esc_re.FindAllStringSubmatch(str2, -1))
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

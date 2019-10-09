@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Functions </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Functions</h1>
+
+<p>Examples on how to use functions in Go.</p>
+
+<h2>Basic Function</h2>
+
+<p>An example of a basic function accepting one parameter and no return value. The parameter type must be specified in the function definition.</p>
+
+<pre><code class="language-go">func Echo(s string) {
+	fmt.Println(s)
+}
+</code></pre>
+
+<h2>Function with Return Value</h2>
+
+<p>Defining a function with a return value, you must specify the type for the return value.</p>
+
+<pre><code class="language-go">func Say(s string) string {
+	phrase := &quot;Hello &quot; + s
+	return phrase
+}
+</code></pre>
+
+<h2>Named Returned Value</h2>
+
+<p>You can define a function with a named return variable. By using a named variable it initializes the variables. Also, by using a named variable you do not need to include the variable in return statement it will return the current value of the variable on return.</p>
+
+<pre><code class="language-go">func Say(s string) (phrase string) {
+	phrase = &quot;Hello &quot; + s
+	return
+}
+</code></pre>
+
+<h2>Multiple Parameters</h2>
+
+<p>Function with multiple parameters and return values</p>
+
+<pre><code class="language-go">func Divide(x, y float64) (float64, float64) {
+	q := math.Trunc(x / y)
+	r := math.Mod(x, y)
+	return q, r
+}
+</code></pre>
+
+<p>Function with multiple parameters and named return values. If the types are the same you can specify the type once at the end</p>
+
+<pre><code class="language-go">func Divide2(x, y float64) (q, r float64) {
+	q = math.Trunc(x / y)
+	r = math.Mod(x, y)
+	return
+}
+</code></pre>
+
+<h2>Variadic Parameters</h2>
+
+<p>A variadic function is a function that accepts an arbitrary number of arguments. Here is an example function accepting any number of ints. A slice is created out of the parameters passed in.</p>
+
+<pre><code class="language-go">func Sum(x ...int) int {
+	sum := 0
+	for _, v := range x {
+		sum += v
+	}
+	return sum
+}
+</code></pre>
+
+<p>You can call the function with multiple parameters:</p>
+
+<pre><code class="language-go">sum := Sum(1,3,5,7)
+fmt.Println(sum)
+</code></pre>
+
+<p>You can also call using the spread operator:</p>
+
+<pre><code class="language-go">nums := []int{1, 2, 3, 4, 5 }
+sum := Sum(nums...)
+fmt.Println(sum)
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>

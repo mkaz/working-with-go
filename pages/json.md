@@ -1,7 +1,6 @@
 ---
 title: JSON
-parent: 1465
-template: page-tut.php
+date: 2014-06-16
 order: 16
 ---
 

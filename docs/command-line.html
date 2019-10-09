@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Command-line </title>
+
+  <link rel="stylesheet" media="screen" href="/css/style.css" >
+</head>
+<body>
+
+  <header class="site-header">
+    <h3 class="site-title">
+      <a href="https://mkaz.github.io/working-with-go/">
+        Working with Go
+      </a>
+    </h3>
+  </header>
+
+  <main>
+
+    <aside>
+      <h2>Contents</h2>
+      <ul>
+        
+          <li><a href="/hello.html">Hola Mundo</a></li>
+        
+          <li><a href="/strings.html">Strings</a></li>
+        
+          <li><a href="/slices.html">Slices</a></li>
+        
+          <li><a href="/functions.html">Functions</a></li>
+        
+          <li><a href="/control-structures.html">Control Structures</a></li>
+        
+          <li><a href="/for-loops.html">For Loops</a></li>
+        
+          <li><a href="/structs.html">Structs</a></li>
+        
+          <li><a href="/maps.html">Maps</a></li>
+        
+          <li><a href="/files.html">Files</a></li>
+        
+          <li><a href="/read-dir.html">Directories</a></li>
+        
+          <li><a href="/objects.html">Objects</a></li>
+        
+          <li><a href="/command-line.html">Command-line</a></li>
+        
+          <li><a href="/date-time.html">Date/Time</a></li>
+        
+          <li><a href="/sorting.html">Sorting</a></li>
+        
+          <li><a href="/json.html">JSON</a></li>
+        
+          <li><a href="/web-server.html">Web Server</a></li>
+        
+          <li><a href="/guess-game.html">Guessing Game</a></li>
+        
+          <li><a href="/rest-api.html">REST API</a></li>
+        
+          <li><a href="/regexps.html">Regexp</a></li>
+        
+          <li><a href="/memcache.html">Memcache</a></li>
+        
+          <li><a href="/mysql.html">MySQL</a></li>
+        
+          <li><a href="/interfaces.html">Interfaces</a></li>
+        
+          <li><a href="/testing.html">Testing</a></li>
+        
+      </ul>
+    </aside>
+
+    <article class="entry-content">
+      <h1>Command-line Args</h1>
+
+<h2>os.Args</h2>
+
+<p>Command-line args are stored as a slice in <code>os.Args</code>. The first argument in list is program itself.</p>
+
+<pre><code class="language-go">num_args := len(os.Args)
+</code></pre>
+
+<p>You can check to see if any command-line arguments were passed in</p>
+
+<pre><code class="language-go">if num_args &lt; 2 {
+	fmt.Println(&quot;&gt;&gt; No args passed in&quot;)
+}
+</code></pre>
+
+<h2>Flag Library</h2>
+
+<p>Use the <a href="https://golang.org/pkg/flag/"><code>flag</code></a> standard library to parse command-line arguments. The flag library parses parameters passed in and flags for invalid types, invalud flags, and handles most needs for creating a command-line program.</p>
+
+<pre><code class="language-go">var s string
+flag.StringVar(&amp;s, &quot;str&quot;, &quot;default value&quot;, &quot;text description&quot;)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>$ ./program -str &quot;Hello&quot;
+</code></pre>
+
+<h2>Full Example</h2>
+
+<p>Here is a full example program showing how to use command-line arguments and flags in Go</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;flag&quot;
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+// global vars
+var str string
+var num int
+var help bool
+
+func main() {
+
+	// define flags
+	flag.StringVar(&amp;str, &quot;str&quot;, &quot;default value&quot;, &quot;text description&quot;)
+	flag.IntVar(&amp;num, &quot;num&quot;, 5, &quot;text description&quot;)
+	flag.BoolVar(&amp;help, &quot;help&quot;, false, &quot;Display Help&quot;)
+
+	// parse
+	flag.Parse()
+
+	// check if help was called explicitly
+	if help {
+		fmt.Println(&quot;&gt;&gt; Display help screen&quot;)
+		os.Exit(1)
+	}
+
+	// See values assigned
+	fmt.Println(&quot;&gt;&gt; String:&quot;, str)
+	fmt.Println(&quot;&gt;&gt; Number:&quot;, num)
+
+	// last command-line argument
+	fmt.Println(&quot;&gt;&gt; Last Item:&quot;, os.Args[num_args-1])
+
+	// the os.Args will include flags for example
+	// go run command-line-args.go --str=Foo filename
+	// os.Args[1] = &quot;--str=Foo&quot;
+
+	// If you have flags and want just the arguments
+	// then after calling flag.Parse() you can call
+	// flag.Args which store only the args
+	args := flag.Args()
+	if len(args) &gt; 0 {
+		fmt.Println(&quot;&gt;&gt; Flag Arg:&quot;, args[0])
+	}
+
+}
+</code></pre>
+
+<p>Run with different parameters</p>
+
+<pre><code class="language-shell">$ go run command-line.go
+&gt;&gt; No args passed in
+&gt;&gt; String: default value
+&gt;&gt; Number: 5
+&gt;&gt; Last Item: command-line.go
+
+$ go run command-line.go --str=Foo --num=8 filename
+&gt;&gt; String: Foo
+&gt;&gt; Number: 8
+&gt;&gt; Last Item: filename
+&gt;&gt; Flag Arg: filename
+</code></pre>
+
+    </article>
+
+  </main>
+
+<footer class="site-footer" role="contentinfo">
+    An <a href="https://mkaz.blog/">mkaz</a> joint
+    <span class="sep"> | </span>
+    <a href="https://github.com/mkaz/hasite">Powered by Hastie</a>
+</footer>
+
+<script src="/js/asciinema/asciinema-player.js"></script>
+<script src="/js/prism.js"></script>
+
+</body>
+</html>
