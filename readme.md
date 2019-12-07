@@ -6,17 +6,6 @@
 Working with Go is a set of examples for Go (golang) to help an experienced programmer become familiar with the Go language. Go is often referred to as golang to help searches.
 
 
-## Contribute
-
-The site is generated from markdown files in the `pages` directory. Any additions, corrections, suggestions or any contributions are appreciated.
-
-To submit a pull request, make your edit to the file in `pages` directory. Use `hastie` to generate documentation and commit both changes files in your PR.
-
-Generation is done using [Hastie](https://github.com/mkaz/hastie), a site-generator I wrote in Go, of course. The built files are placed in the `/docs` directory that Github Pages serves from.
-
-Working with Go was started by Marcus Kazmierczak. Thanks to <a href="https://github.com/mkaz/working-with-go/graphs/contributors">all the contributors</a> who have helped make it even better.
-
-
 ## Resources
 
 This set of examples assumes a base level of programming experience and is intended for someone learning the Go language from another language; not necessarily someone new to programming altogether.
@@ -26,6 +15,20 @@ If you are starting out and want to learn how to program and choose Go as your f
 The official site has a [Tour of Go](http://tour.golang.org/) which is an interactive walk through, another good introduction to the language.
 
 I'm also a big fan of [Go by Example](https://gobyexample.com/) which is quite similar.
+
+
+## Contribute
+
+The site is generated from markdown files in the `pages` directory. Any additions, corrections, suggestions or any contributions are appreciated.
+
+To submit a pull request, make your edit to the file in `pages` directory. Use `hastie` to generate documentation and commit both changes files in your PR.
+
+Note, the date in the markdown front matter is used for sorting the pages and no longer relevant to the temporal date of the file.
+
+Generation is done using [Hastie](https://github.com/mkaz/hastie), a site-generator I wrote in Go, of course. The built files are placed in the `/docs` directory that Github Pages serves from.
+
+Working with Go was started by Marcus Kazmierczak. Thanks to <a href="https://github.com/mkaz/working-with-go/graphs/contributors">all the contributors</a> who have helped make it even better.
+
 
 ## License
 

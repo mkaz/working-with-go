@@ -44,7 +44,7 @@ One way to process a file line by line, would be to read the entire file in, lik
 lines = strings.split( string(content), "\n" )
 ```
 
-The above is perfectly fine and works for most files. If you have a  large file, for example one that can not be stored in memory, you can use the `bufio` package. <div class="sidenote"><div class="sidenote">See [bufio package](https://golang.org/pkg/bufio) documentaiton.</div>
+The above is perfectly fine and works for most files. If you have a  large file, for example one that can not be stored in memory, you can use the `bufio` package. <div class="sidenote">See [bufio package](https://golang.org/pkg/bufio) documentaiton.</div>
 
 Here is a way to process a large file line-by-line in golang.
 
