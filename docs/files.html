@@ -78,7 +78,7 @@
 
 <h2>Reading File</h2>
 
-<p>You can read a complete file in using <a href="https://golang.org/pkg/io/ioutil/#ReadFile"><code>ioutil.ReadFile</code></a>. The function returns two variables, the first the content of the file. The second variable is the error if one occurred. If no error, than <code>err</code> will be <code>nil</code></p>
+<p>You can read a complete file in using <code>ioutil.ReadFile</code>. <div class="sidenote">See <a href="https://golang.org/pkg/io/ioutil/#ReadFile">ReadFile documentation</a></div> The function returns two variables, the first the content of the file. The second variable is the error if one occurred. If no error, than <code>err</code> will be <code>nil</code></p>
 
 <pre><code class="language-go">filename := &quot;./extras/rabbits.txt&quot;
 
@@ -102,6 +102,33 @@ if err != nil {
 	fmt.Println(&quot;File: junk.foo does not exist&quot;)
 }
 </code></pre>
+
+<h2>Read File Line-by-Line</h2>
+
+<p>One way to process a file line by line, would be to read the entire file in, like the first example above, and then split on the line ending.</p>
+
+<pre><code class="language-go">lines = strings.split( string(content), &quot;\n&quot; )
+</code></pre>
+
+<p>The above is perfectly fine and works for most files. If you have a  large file, for example one that can not be stored in memory, you can use the <code>bufio</code> package. <div class="sidenote"><div class="sidenote">See <a href="https://golang.org/pkg/bufio">bufio package</a> documentaiton.</div></p>
+
+<p>Here is a way to process a large file line-by-line in golang.</p>
+
+<pre><code class="language-go">file, err := os.Open(filename)
+if err != nil {
+	fmt.Println(&quot;Error opening file: &quot;, err)
+}
+defer file.Close() // see explanation below
+
+// Use bufio scanner, the default Scan method is by line
+scanner := bufio.NewScanner(file)
+for scanner.Scan() {
+	line := scanner.Text()
+	fmt.Println(line)
+}
+</code></pre>
+
+<p>The <code>defer</code> statement defers the execution until the surrounding function (or overall program) completes. You should always use <code>defer</code> for something that needs to be closed, or cleaned up.</p>
 
 <h2>Write to a new File</h2>
 
@@ -131,12 +158,9 @@ if _, err = af.WriteString(&quot;Appending this text&quot;); err != nil {
 }
 </code></pre>
 
-<p>The <code>defer</code> statement defers the execution until the surrounding function (or overall program) completes. You should always use <code>defer</code> for something that needs to be closed, or cleaned up.</p>
-
 <h2>Using Filepath</h2>
 
-<p>Use the <a href="https://golang.org/pkg/path/filepath/">filepath package</a> for working with cross-platform paths properly.
-For example, use <code>filepath.Join</code> for creating a path with directory.</p>
+<p>Use the <code>filepath</code> package for working with cross-platform paths properly. <div class="sidenote">See <a href="https://golang.org/pkg/path/filepath/">filepath package</a> documentaiton.</div> For example, use <code>filepath.Join</code> for creating a path with directory.</p>
 
 <pre><code class="language-go">package main
 

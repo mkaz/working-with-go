@@ -6,10 +6,9 @@ order: 9
 
 # Working with Files
 
-
 ## Reading File
 
-You can read a complete file in using [`ioutil.ReadFile`](https://golang.org/pkg/io/ioutil/#ReadFile). The function returns two variables, the first the content of the file. The second variable is the error if one occurred. If no error, than `err` will be `nil`
+You can read a complete file in using `ioutil.ReadFile`. <div class="sidenote">See [ReadFile documentation](https://golang.org/pkg/io/ioutil/#ReadFile)</div> The function returns two variables, the first the content of the file. The second variable is the error if one occurred. If no error, than `err` will be `nil`
 
 ```go
 filename := "./extras/rabbits.txt"
@@ -36,6 +35,35 @@ if _, err := os.Stat("junk.foo"); os.IsNotExist(err) {
 	fmt.Println("File: junk.foo does not exist")
 }
 ```
+
+## Read File Line-by-Line
+
+One way to process a file line by line, would be to read the entire file in, like the first example above, and then split on the line ending.
+
+```go
+lines = strings.split( string(content), "\n" )
+```
+
+The above is perfectly fine and works for most files. If you have a  large file, for example one that can not be stored in memory, you can use the `bufio` package. <div class="sidenote"><div class="sidenote">See [bufio package](https://golang.org/pkg/bufio) documentaiton.</div>
+
+Here is a way to process a large file line-by-line in golang.
+
+```go
+file, err := os.Open(filename)
+if err != nil {
+	fmt.Println("Error opening file: ", err)
+}
+defer file.Close() // see explanation below
+
+// Use bufio scanner, the default Scan method is by line
+scanner := bufio.NewScanner(file)
+for scanner.Scan() {
+	line := scanner.Text()
+	fmt.Println(line)
+}
+```
+
+The `defer` statement defers the execution until the surrounding function (or overall program) completes. You should always use `defer` for something that needs to be closed, or cleaned up.
 
 ## Write to a new File
 
@@ -67,12 +95,11 @@ if _, err = af.WriteString("Appending this text"); err != nil {
 }
 ```
 
-The `defer` statement defers the execution until the surrounding function (or overall program) completes. You should always use `defer` for something that needs to be closed, or cleaned up.
 
 ## Using Filepath
 
-Use the [filepath package](https://golang.org/pkg/path/filepath/) for working with cross-platform paths properly.
-For example, use `filepath.Join` for creating a path with directory.
+
+Use the `filepath` package for working with cross-platform paths properly. <div class="sidenote">See [filepath package](https://golang.org/pkg/path/filepath/) documentaiton.</div> For example, use `filepath.Join` for creating a path with directory.
 
 ```go
 package main
