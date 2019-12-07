@@ -8,8 +8,9 @@ Working with Go is a set of examples for Go (golang) to help an experienced prog
 
 ## Contribute
 
-The site is generated from markdown files in the `pages` directory. Any additions, corrections, suggestions or any contributions are appreciated. You can submit a pull request or an issue for a bug or fix.
+The site is generated from markdown files in the `pages` directory. Any additions, corrections, suggestions or any contributions are appreciated.
 
+To submit a pull request, make your edit to the file in `pages` directory. Use `hastie` to generate documentation and commit both changes files in your PR.
 
 Generation is done using [Hastie](https://github.com/mkaz/hastie), a site-generator I wrote in Go, of course. The built files are placed in the `/docs` directory that Github Pages serves from.
 
