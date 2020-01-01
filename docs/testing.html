@@ -78,11 +78,11 @@
     <article class="entry-content">
       <h1>Testing</h1>
 
-<p>The <a href="https://golang.org/pkg/testing/">Go testing package</a> supports creating unit test in go. Your test code is written in plain go, there is not a new assert language or syntax to learn. You write go code, and then Fail or Error out to signal the test did not pass.</p>
+<p>The <a href="https://golang.org/pkg/testing/">Go testing package</a> supports creating unit test in go. Your test code is written in plain go, there is not a new assert language or syntax to learn. Write go code and use <code>t.Fail</code> or <code>t.Error</code> to signal the test did not pass.</p>
 
-<p>To write a new test created a test file, ending in <code>_test.go</code> which includes functions with the following signature: <code>func TestXxx(*testing.T)</code></p>
+<p>To write a new test create a test file, ending in <code>_test.go</code> that includes functions with the following signature: <code>func TestXxx(*testing.T)</code></p>
 
-<p>Note: The function name must start with <code>Test</code> and include a capitalized second part which is used to identify the test routing.</p>
+<p>Note: The function name must start with <code>Test</code> and include a capitalized second part to identify the test routing.</p>
 
 <p>For example, if you want to test an <code>Add</code> function in your project:</p>
 
@@ -101,6 +101,32 @@ func TestAdd(t *testing.T) {
 </code></pre>
 
 <p>Run test using: <code>go test</code></p>
+
+<h2>Test Table</h2>
+
+<p>Use a table structure to setup and test multiple inputs and expected values.</p>
+
+<pre><code class="language-go">func TestAdd(t *testing.T) {
+	var testData = []struct {
+		param1 int
+		param2 int
+		expect int
+	}{
+		{ 1, 2, 3 },
+		{ 0, 1, 1 },
+		{ 1, 0, 1 },
+		{ -1, 1, 0 },
+		{ -1, -1, -2 },
+	}
+
+	for _, td := range testData {
+		result := Add(td.param1, td.param2)
+		if td.expect != result {
+			t.Errorf(&quot;Expected %s but received %s&quot;, td.expect, result)
+		}
+	}
+}
+</code></pre>
 
     </article>
 
