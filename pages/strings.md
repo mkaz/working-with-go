@@ -88,7 +88,7 @@ In an OOP world, the `Join` function would be defined in an array package. In Go
 
 ```go
 lines := []string{ "one", "two", "three" }
-str := string.Join(lines, ",")
+str := strings.Join(lines, ",")
 fmt.Println(str)
 >> one, two, three
 ```
