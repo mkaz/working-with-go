@@ -1,7 +1,6 @@
 ---
 title: Interfaces
-date: 2014-06-24
-order: 12
+order: 24
 ---
 
 # Interfaces

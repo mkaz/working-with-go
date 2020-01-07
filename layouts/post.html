@@ -23,7 +23,7 @@
     <aside>
       <h2>Contents</h2>
       <ul>
-        {{ range .Recent.Reverse }}
+        {{ range .AllPages }}
           <li><a href="/working-with-go{{ .Url }}">{{ .Title }}</a></li>
         {{ end }}
       </ul>

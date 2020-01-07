@@ -15,7 +15,7 @@ body {
   margin: 0;
   background-color: #FAFAFA;
   color: #111111;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 a, a:visited {
@@ -413,7 +413,3 @@ pre > code.highlight {
   outline-offset: 0.4em;
 }
 
-.gatsby-highlight-code-line {
-  display: block;
-  background-color: rgb(51, 66, 76);
-}

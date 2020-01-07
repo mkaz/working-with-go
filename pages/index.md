@@ -1,5 +1,6 @@
 ---
 title: Working with Go
+unlisted: yes
 ---
 
 Working with Go is a set of examples in Go (golang) to get an experienced programmer familiar with Go. The Go language is often referred to as golang to help searches.
