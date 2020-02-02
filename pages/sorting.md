@@ -1,6 +1,6 @@
 ---
 title: Sorting
-date: 2014-06-15
+layout: page
 order: 15
 ---
 

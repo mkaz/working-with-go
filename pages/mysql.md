@@ -1,6 +1,6 @@
 ---
 title: MySQL
-date: 2014-06-23
+layout: page
 order: 23
 ---
 

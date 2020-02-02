@@ -1,6 +1,6 @@
 ---
 title: Memcache
-date: 2014-06-22
+layout: page
 order: 22
 ---
 

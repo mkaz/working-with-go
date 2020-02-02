@@ -1,6 +1,6 @@
 ---
 title: Testing
-date: 2014-06-24
+layout: page
 order: 24
 ---
 

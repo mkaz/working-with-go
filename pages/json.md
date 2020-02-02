@@ -1,6 +1,6 @@
 ---
 title: JSON
-date: 2014-06-16
+layout: page
 order: 16
 ---
 

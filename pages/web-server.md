@@ -1,6 +1,6 @@
 ---
 title: Web Server
-date: 2014-06-17
+layout: page
 order: 17
 ---
 

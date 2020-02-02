@@ -1,6 +1,6 @@
 ---
 title: Command-line
-date: 2014-06-13
+layout: page
 order:13
 ---
 

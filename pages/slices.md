@@ -1,6 +1,6 @@
 ---
 title: Slices
-date: 2014-06-03
+layout: page
 order: 3
 ---
 
@@ -26,7 +26,7 @@ alphas := []string{"abc", "def", "ghi", "jkl"}
 
 ## Append
 
-Slices can not be modified, a new copy needs to be made, it is common to copy to the same variable. 
+Slices can not be modified, a new copy needs to be made, it is common to copy to the same variable.
 
 ```go
 var nums []int

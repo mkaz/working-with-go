@@ -1,6 +1,6 @@
 ---
 title: Regexp
-date: 2014-06-21
+layout: page
 order: 21
 ---
 

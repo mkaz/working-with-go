@@ -1,5 +1,6 @@
 ---
 title: Interfaces
+layout: page
 order: 24
 ---
 

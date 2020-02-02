@@ -1,6 +1,6 @@
 ---
 title: Strings
-date: 2014-06-02
+layout: page
 order: 2
 ---
 
@@ -84,7 +84,7 @@ fmt.Printf("%v \n", fields)
 
 ## Join an Array of Strings
 
-In an OOP world, the `Join` function would be defined in an array package. In Go, however, it is part of the strings package, you pass in an array of strings and the separator you want to join them. 
+In an OOP world, the `Join` function would be defined in an array package. In Go, however, it is part of the strings package, you pass in an array of strings and the separator you want to join them.
 
 ```go
 lines := []string{ "one", "two", "three" }

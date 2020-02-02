@@ -1,6 +1,6 @@
 ---
 title: Objects
-date: 2014-06-11
+layout: page
 order: 11
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Files
-date: 2014-06-09
+layout: page
 order: 9
 ---
 

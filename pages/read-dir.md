@@ -1,6 +1,6 @@
 ---
 title: Directories
-date: 2014-06-10
+layout: page
 order: 10
 ---
 

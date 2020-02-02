@@ -1,6 +1,6 @@
 ---
 title: Date/Time
-date: 2014-06-14
+layout: page
 order: 14
 ---
 

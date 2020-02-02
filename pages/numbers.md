@@ -1,6 +1,6 @@
 ---
 title: Numbers
-date: 2014-06-02
+layout: page
 order: 2
 ---
 

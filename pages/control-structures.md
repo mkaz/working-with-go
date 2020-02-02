@@ -1,6 +1,6 @@
 ---
 title: Control Structures
-date: 2014-06-05
+layout: page
 order: 5
 ---
 

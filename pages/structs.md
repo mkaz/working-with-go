@@ -1,6 +1,6 @@
 ---
 title: Structs
-date: 2014-06-07
+layout: page
 order: 7
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Functions
-date: 2014-06-04
+layout: page
 order: 4
 ---
 

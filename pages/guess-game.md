@@ -1,6 +1,6 @@
 ---
 title: Guessing Game
-date: 2014-06-18
+layout: page
 order: 18
 ---
 

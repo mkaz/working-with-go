@@ -1,6 +1,6 @@
 ---
 title: Maps
-date: 2014-06-08
+layout: page
 order: 8
 ---
 

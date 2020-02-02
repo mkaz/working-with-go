@@ -1,6 +1,6 @@
 ---
 title: For Loops
-date: 2014-06-06
+layout: page
 order: 6
 ---
 
