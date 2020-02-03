@@ -1,9 +1,0 @@
-{
-    "SourceDir"  : "pages",
-    "LayoutDir"  : "/home/mkaz/src/mkaz/hastie/themes/docs",
-    "PublishDir" : "/home/mkaz/sites/mkblog/working-with-go",
-    "BaseUrl"    : "/working-with-go",
-	"Params": {
-		"SiteName": "Working with Go"
-	}
-}
